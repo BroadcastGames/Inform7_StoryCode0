@@ -1,0 +1,3 @@
+This folder, storyFilesPile0, contains story.ni files without the wrapping project folders.
+
+To utilize these, create a new empty project in Inform 7 and copy over the story.ni file with the contents of one of these tiles.
