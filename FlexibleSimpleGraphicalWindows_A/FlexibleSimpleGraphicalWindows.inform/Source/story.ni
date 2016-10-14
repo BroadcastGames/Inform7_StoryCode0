@@ -97,7 +97,7 @@ To say redfox letters:
 ==  Images / Photographs / Drawings / Figures / Illustrations
 ======================================================================================
        Install these in the Inform materials folder name "Figures".
-       The images are somewhat large so that cropping behavior with the 'side window' can be seen. A mix of png and jpg was used to just to have some technical variety. 
+       The images are somewhat large so that cropping behavior with the 'side window' can be seen. A mix of gif, png and jpg was used to just to have some technical variety. 
 ]
 
 Figure field-illustration is the file "field.png".
@@ -121,15 +121,15 @@ After starting the virtual machine:
 Showing the animated-png is an action out of world. Understand "apng" as showing the animated-png. [No restrictions on room.]
 	
 Carry out showing the animated-png:
-	say "Here is a small animated png graphic of a bouncing ball. On Firefox it seems to bounce, on Chrome it does not? It's expected most game interpreters will not show it animated.";
+	say "Here is a small animated png graphic of a bouncing ball. On Firefox it seems to bounce, on Chrome it does not? It's expected most game interpreters will not show it animated. Should be in the main window inline, like this text.";
 	display figure png-animated-ball.
-	
+
 Showing the animated-gif is an action out of world. Understand "agif" as showing the animated-gif. [No restrictions on room.]
-	
+
 Carry out showing the animated-gif:
-	say "Here is a small animated gif graphic of a math equation from Wikimedia user Petrus3743. On Firefox it seems to bounce, on Chrome it does not? It's expected most game interpreters will not show it animated.";
+	say "Here is a small animated gif graphic of a math equation from Wikimedia user Petrus3743. On Firefox it seems to bounce, on Chrome it does not? It's expected most game interpreters will not show it animated. Should be in the main window inline, like this text.";
 	display figure gif-animated-equation.
-	
+
 [
 ======================================================================================
 ==  Field room Images Logic
@@ -210,7 +210,7 @@ Carry out showing the side-altsnapshot:
 ]
 
 
-Place is a room. "Type 'side window' to toggle. A border window should also appear, three windows in total. This line continues to be lengthy so that you can see how word wrapping is impacted by the toggle of the side window. The quick brown fox jumps over the lazy dog, or did he? Try going west to see letter coloring. East is a Field with graphic images.".
+Place is a room. "Type 'side window' to toggle. A border window should also appear, three windows in total. This line continues to be lengthy so that you can see how word wrapping is impacted by the toggle of the side window. The quick brown fox jumps over the lazy dog, or did he? Try going west to see letter coloring. East is a Field with graphic images. Commands 'apng' and 'agif' should work anywhere.".
 
 Wild West is a room, west of Place. "You made it to the [red reverse]Wild Occidental[default letters], type [highlighted letters]'east'[default letters] to return to Place. [redfox letters]Je ne puis pas jouer avec toi, dit le renard."
 
