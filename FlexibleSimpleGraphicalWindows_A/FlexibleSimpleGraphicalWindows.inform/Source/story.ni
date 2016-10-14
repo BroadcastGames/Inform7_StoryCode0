@@ -1,6 +1,6 @@
 "Flexible and Simple Graphical Windows" by "Community".
 
-The story genre is "Other". The release number is 4.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 5.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -96,23 +96,43 @@ To say redfox letters:
 ======================================================================================
 ==  Images / Photographs / Drawings / Figures / Illustrations
 ======================================================================================
-       Install these in the Inform materials folder name "FIgures".
-       The two images are somewhat large so that cropping behavior with the 'side window' can be seen.
+       Install these in the Inform materials folder name "Figures".
+       The images are somewhat large so that cropping behavior with the 'side window' can be seen. A mix of png and jpg was used to just to have some technical variety. 
 ]
 
 Figure field-illustration is the file "field.png".
 Figure duck-illustration is the file "duck.png".
 Figure gopher-snapshot is the file "gopher.jpg".
-Figure placeholder-image is the file "Puzzly_puzzled.png".
+Figure placeholder-image is the file "Puzzly_puzzled.png" [off Wikimedia.org].
+Figure png-animated-ball is the file "Animated_PNG_example_bouncing_beach_ball.png" [off Wikimedia.org].
+Figure gif-animated-equation is the file "01-Siebzehneck-Animatiom-Variation.gif" [off Wikipedia.org, author Petrus3743].
+
+[
+======================================================================================
+==  Anywhere Images Logic
+======================================================================================
+]
 
 After starting the virtual machine:
 	now the currently shown picture is figure placeholder-image;
 	now the current graphics drawing rule is the standard placement rule.
 
 
+Showing the animated-png is an action out of world. Understand "apng" as showing the animated-png. [No restrictions on room.]
+	
+Carry out showing the animated-png:
+	say "Here is a small animated png graphic of a bouncing ball. On Firefox it seems to bounce, on Chrome it does not? It's expected most game interpreters will not show it animated.";
+	display figure png-animated-ball.
+	
+Showing the animated-gif is an action out of world. Understand "agif" as showing the animated-gif. [No restrictions on room.]
+	
+Carry out showing the animated-gif:
+	say "Here is a small animated gif graphic of a math equation from Wikimedia user Petrus3743. On Firefox it seems to bounce, on Chrome it does not? It's expected most game interpreters will not show it animated.";
+	display figure gif-animated-equation.
+	
 [
 ======================================================================================
-==  Field Images Logic
+==  Field room Images Logic
 ======================================================================================
 ]
 
@@ -127,7 +147,7 @@ Check showing the picture when the location is not the field:
 Carry out showing the picture:
 	say "Here is a duck. Obviously, not the land mammal. Is this duck even real or a simulation? It should appear in the main window just like the text you are reading. As I understand it, the runtime does not know how to resize this image and it may have trouble fitting on smaller screens.";
 	display figure duck-illustration.
-	
+
 
 [ Tests of behavior.
 1. Can we change the size of the graphics window after creation?
