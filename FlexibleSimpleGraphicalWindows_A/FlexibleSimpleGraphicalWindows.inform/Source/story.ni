@@ -8,6 +8,15 @@ This is all about pure Glulx, not Z-Machine.
 
 reference:
 http://docs.textadventures.co.uk/ifanswers/ifanswers.com/662/flexible-windows-background-window-always-another-inform.html
+
+**************************************************************************************************
+
+General observerations and desires, if understanding the tools correctly:
+
+1. Wihtout any extensions, a Figure can be created and displayed in the main windows that is jpg/png graphic image. This story demonstrates this with the "picture" command in the Field room. Also 'look' in the Field room should also show the image using the same technique.
+2. There is no ability to size or scale the Figure with the default non-extensions behavior.
+3. DESIRE: is there an extension that can show Figure in the 'non-extension way' that allows scaling? Especially downscale larger images to a size like 'Simple Graphical Window' does - but without the use of a second window? Still following the scrolling main-window approach that is used, but some sense of scaling all png/jpg images to a defined size.
+
 ]
 
 [Include version 15/161003 of Flexible Windows by Jon Ingold.]
