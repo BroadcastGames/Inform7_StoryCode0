@@ -98,6 +98,8 @@ To say redfox letters:
 ======================================================================================
        Install these in the Inform materials folder name "Figures".
        The images are somewhat large so that cropping behavior with the 'side window' can be seen. A mix of gif, png and jpg was used to just to have some technical variety. 
+
+       gif format is formally disallowed in the Blorb distribution, reference: http://www.intfiction.org/forum/viewtopic.php?f=7&t=20659
 ]
 
 Figure field-illustration is the file "field.png".
@@ -105,7 +107,8 @@ Figure duck-illustration is the file "duck.png".
 Figure gopher-snapshot is the file "gopher.jpg".
 Figure placeholder-image is the file "Puzzly_puzzled.png" [off Wikimedia.org].
 Figure png-animated-ball is the file "Animated_PNG_example_bouncing_beach_ball.png" [off Wikimedia.org].
-Figure gif-animated-equation is the file "01-Siebzehneck-Animatiom-Variation.gif" [off Wikipedia.org, author Petrus3743].
+[Figure gif-animated-equation is the file "01-Siebzehneck-Animatiom-Variation.gif" [off Wikipedia.org, author Petrus3743].]
+Figure gif-animated-equation is the file "01-Siebzehneck-Animatiom-Variation_tricknamed0.jpg" [gif hammered into name jpg to trick Release of Blorb].
 
 [
 ======================================================================================
