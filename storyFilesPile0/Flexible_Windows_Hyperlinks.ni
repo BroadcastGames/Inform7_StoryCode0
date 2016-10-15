@@ -52,5 +52,5 @@ Wild West is a room, west of Place.  "Welcome to the Wild West! Rodeo starts sho
 
 Field is a room, east of Place. "This is a large open field.  [link 2]West[end link] is the central Place room."
 
-Attic is a room, up from the Place. "Well, it seems that Place has an Attic? So it must be more than a generic place. You better get [link 21]Down[end link], this part of the unvierse seems unstable."
+Attic is a room, up from the Place. "Well, it seems that Place has an Attic? So it must be more than a generic place. You better get [link 21]Down[end link], this part of the universe seems unstable."
 
