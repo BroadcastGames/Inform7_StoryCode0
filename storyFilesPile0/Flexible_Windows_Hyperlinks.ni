@@ -1,6 +1,6 @@
 "FlexibleWindowsHyperlinksA" by "Community"
 
-The story genre is "Other". The release number is 1.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 2.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [Include version 15/161003 of Flexible Windows by Jon Ingold.]
@@ -46,11 +46,11 @@ Table of Glulx Hyperlink Replacement Commands (continued)
 When play begins:
         now the right hand status line is "[link 100]reset story[end link]"
 
-Place is a room.  "This is a Place that seems to be the center of the universe.  To the [link  2]East[end link] a wide field opens, while to the [link 4]West[end link] a narrow path winds into the Wild."
+Place is a room.  "This is a Place that seems to be the center of the universe.  To the [link  2]East[end link] a wide field opens, while to the [link 4]West[end link] a narrow path winds into the Wild. [link 20]π[end link]"
 
 Wild West is a room, west of Place.  "Welcome to the Wild West! Rodeo starts shortly.  [link 2]Easterly narrow trail[end link] might return you to Place."
 
-Field is a room, east of Place. "This is a large open field.  [link 2]West[end link] is the central Place room."
+Field is a room, east of Place. "This is a large open field.  [link 4]West[end link] is the central Place room."
 
 Attic is a room, up from the Place. "Well, it seems that Place has an Attic? So it must be more than a generic place. You better get [link 21]Down[end link], this part of the universe seems unstable."
 
