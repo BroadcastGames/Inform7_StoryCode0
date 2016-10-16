@@ -1,6 +1,6 @@
 "Flexible and Simple Graphical Windows" by "Community".
 
-The story genre is "Other". The release number is 5.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 6.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -56,6 +56,7 @@ The rock number of the border window is 315. [ "If we set numbers ending in 5 fo
 [ The mere inclusion of the Simple Graphical Window extension automatically creates a window named 'graphic window' ]
 
 The measurement of the graphics window is 8 [units?].
+The rock number of the graphics window is 325. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering. "]
 
 The background color of the side window is "#FFC786". [Peachy]
 The background color of the border window is "#607080". [Grey/Dark Blue]
