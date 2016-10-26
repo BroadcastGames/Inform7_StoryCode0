@@ -1,3 +1,10 @@
 2015 discussion:
 
 http://www.intfiction.org/forum/viewtopic.php?f=6&t=17291&view=next
+
+1. "Simple CYOA" by Mark Tilford. http://inform7.com/extensions/Mark%20Tilford/Simple%20CYOA/index.html
+2. "Hybrid Choices" by AW Freyr. http://inform7.com/extensions/AW%20Freyr/Hybrid%20Choices/index.html
+
+Verbal Interfaces, building recognized word lists:
+
+http://www.intfiction.org/forum/viewtopic.php?f=38&t=20094
