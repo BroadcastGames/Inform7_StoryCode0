@@ -1,0 +1,5 @@
+Flexible and Simple Graphical Windows
+Glulx technical demonstration by Community
+Release 5 / Serial number 161014 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)
+
+http://eblong.com/zarf/glulx/quixe/quixe/play-remote.html?story=https%3A%2F%2Fdrive.google.com%2Fuc%3Fexport%3Ddownload%26id%3D0B452Xi1yb0BTY0FGeEhiTl91ZkU&enter=Play+it%21

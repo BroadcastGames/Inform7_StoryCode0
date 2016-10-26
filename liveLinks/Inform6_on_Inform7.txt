@@ -1,0 +1,60 @@
+Glulx Inform page:
+
+http://adamcadre.ac/gull/index.html
+
+2015 discussion on using Include of Inform 6 in an Inform 7 source file:
+
+http://www.intfiction.org/forum/viewtopic.php?f=7&t=17654
+
+Informatic IDE for Inform 6 that was released open source in 2015:
+
+http://www.intfiction.org/forum/viewtopic.php?f=7&t=17386
+https://github.com/mrloam/informatic
+
+Can the Inform 7 IDE work with Inform 6 projects?
+
+http://www.intfiction.org/forum/viewtopic.php?f=7&t=20101
+
+Compile from the command line:
+==============================================
+http://www.intfiction.org/forum/viewtopic.php?f=7&t=19057
+Very comphrehensive desire to treat Inform 7 as more a standard dev tool:
+http://www.intfiction.org/forum/viewtopic.php?f=7&t=19218
+
+What are the parameters for the Inform 7 compiler?
+
+http://www.intfiction.org/forum/viewtopic.php?f=7&t=17043
+
+Website with compiler online:
+
+http://playfic.com/
+
+**********************************************
+Inform 7 internals:
+
+https://eev.ee/blog/2016/01/12/heteroglot-number-16-in-pascal-number-17-in-inform7/#problem-17-in-inform-7
+
+Highlights:
+    1. "I was forced to write a Makefile, just for this project. It creates a temporary directory containing the minimum structure necessary to convince the compiler to run, then runs it based on copying what the IDE reports having done. It works on my machine!"
+	2. frotz vs. dfrotz for shell execution
+	
+
+Inform 7 in Python?
+=========================
+Adam Thornton
+https://www.fsf.net/~adam/i7.py
+
+"If you like, grab http://www.fsf.net/~adam/i7.py -- this is a file
+which you can drop in place of /usr/local/bin/i7 after unpacking the
+i386 CLI I7 drop onto your XO. It's my first actual Python program and
+about all I will vouch for is "it works for me." If you've been having
+trouble with pathnames and such on the CLI version (some Red Hat users)
+and you have Python on your Linux box, this might be worth a try for you
+as well."
+
+Linux, Ubuntu
+===================
+Ubuntu 16.04 official repository comes with an outdated verison of the Inform 6 compiler. You can use the binary from the Inform 7 IDE, or try to compile it.
+
+Makefile is not currently on the repository:
+https://github.com/DavidKinder/Inform6/issues/2

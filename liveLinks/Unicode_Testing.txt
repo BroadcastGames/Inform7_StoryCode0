@@ -1,0 +1,2 @@
+Glulx Inform 6 test:
+http://www.eblong.com/zarf/glulx/memstreamtest.inf
