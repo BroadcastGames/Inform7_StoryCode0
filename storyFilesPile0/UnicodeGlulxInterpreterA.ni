@@ -1,6 +1,6 @@
 "UnicodeGlulxInterpreterA" by "Community"
 
-The story genre is "Other". The release number is 5.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 6.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [ 
@@ -18,9 +18,9 @@ Place is a room. "Welcome to the Place. To the west there is a testing room."
 
 The Wild West is west of the Place. "This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E. West is another room that is even more wild.".
 
-The Wilder West is west of the Wild West.  "[italic type]This is Italic type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E. [bold type]This is bold type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E. [fixed letter spacing]This is fixed letter spacing type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E. Another west?"
+The Wilder West is west of the Wild West.  "[italic type]This is Italic type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E. [bold type]This is bold type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E. [fixed letter spacing]This is fixed letter spacing type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E.  [paragraph break]UTF-8 Unicode with more than two bytes? 'For example the code point U+9A69 (驩) is encoded as E9 A9 A9'. The gothic letter hwair U+10348 is supposed to be 4 bytes, with a decimal value of 66,376? I pasted one those hwair characters here in the IDE and the Inform 7 6M62 compiler errored with 'Inform can only handle Unicode characters in the 16-bit range, from 0 to 65535.' Another west?"
 
-The West囍ern End is west of Wilder West.  "Je ne suis pour toi qu'un renard semblable à cent mille renards. Mais, si tu m'apprivoises, nous aurons besoin l'un de l'autre. Tu seras pour moi unique au monde. ... Mais si tu m'apprivoises, ma vie sera comme ensoleillée.[paragraph break]Conditional test, do you see Unicode frowns and a happy Arabic greeting? [unicode 9785][unicode 9785][unicode 9785]. [if unicodage is enabled][unicode 9785][unicode 9785][unicode 9785] - enough of that, positive: أهلاً وسهلاً --- IMPORTANT NOTE: The room name should be 'West囍ern End' with Han 'double happiness' U+56cd symbol between 'West' and 'ern'. [otherwise]No, your Interpreter told me no Unicode. Logic test of Unicode said NOT HERE.[end if] More appears to be to the west.".
+The West囍ern End is west of Wilder West.  "Je ne suis pour toi qu'un renard semblable à cent mille renards. Mais, si tu m'apprivoises, nous aurons besoin l'un de l'autre. Tu seras pour moi unique au monde. ... Mais si tu m'apprivoises, ma vie sera comme ensoleillée.[paragraph break]Conditional test, do you see Unicode frowns and a happy Arabic greeting? [if unicodage is enabled][unicode 9785][unicode 9785][unicode 9785]. [unicode 9785][unicode 9785][unicode 9785] - enough of that, positive: أهلاً وسهلاً --- IMPORTANT NOTE: The room name should be 'West囍ern End' with Han 'double happiness' U+56cd symbol between 'West' and 'ern'. [otherwise]No, your Interpreter told me no Unicode. Logic test of Unicode said NOT HERE.[end if] More appears to be to the west.".
 
 The A西部B is west of the West囍ern End.  "This is The Westest, named 'A西部B', there are no spaces between the 'A' and 'B', only two Chinese Unicode characters. Even more appears to be to the west.".
 
