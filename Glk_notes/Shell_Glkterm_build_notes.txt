@@ -4,3 +4,7 @@ Glkterm build
 Here is a good reference on how to compile and link in an app for those not familiar with C coding and related tools.
 
 https://github.com/Homebrew/homebrew-games/blob/master/glkterm.rb
+https://github.com/Homebrew/homebrew-games/blob/master/glktermw.rb
+
+More build howto discussion:
+http://www.intfiction.org/forum/viewtopic.php?f=38&t=19322
