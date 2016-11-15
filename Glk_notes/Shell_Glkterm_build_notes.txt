@@ -1,0 +1,6 @@
+Glkterm build
+=================
+
+Here is a good reference on how to compile and link in an app for those not familiar with C coding and related tools.
+
+https://github.com/Homebrew/homebrew-games/blob/master/glkterm.rb

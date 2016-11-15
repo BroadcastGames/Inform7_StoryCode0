@@ -1,0 +1,44 @@
+"MemoryStreamTestB" by "Community"
+
+The story genre is "Glk API Technical Exercise". The release number is 2.
+
+[*: "Intelligent Putting"]
+
+Include Text Capture by Eric Eve
+
+Part 1 - Implicit Taking Mechanism
+
+Before putting something on something when the noun is not carried:
+ if the noun is on the second noun,
+     say "[The noun] [are] already on [the second noun]." instead;
+ take the noun implicitly;
+ if the noun is not carried, stop the action.
+
+Before inserting something into something when the noun is not carried:
+ if the noun is in the second noun,
+     say "[The noun] [are] already in [the second noun]." instead;
+ take the noun implicitly;
+ if the noun is not carried, stop the action.
+
+To take (obj - a thing) implicitly:
+  start capturing text; 
+  silently try taking the obj;
+  stop capturing text;
+  say "(first [if the obj is carried]taking[otherwise]trying to take[end if] [the obj])[command clarification break]";
+  if the obj is not carried, say captured text.
+
+Part 2 - Scenario
+
+The Lumber Room is a Room. "The Junk of decades has accumulated here. The command 'put comb in box' will invoke Glk memory stream feature if this is a Glulx interpreter interfaced with Glk."
+
+A large wooden table is here.
+
+A small red box is on the table. It is an openable open container.
+
+An old black comb is here.
+A spare sock is here.
+
+A bust of King George V is here.
+    Instead of taking the bust: say "The bust is too heavy for you to lift."
+
+Test me with "put comb in box/put sock on table/put table in box/put bust on table."
