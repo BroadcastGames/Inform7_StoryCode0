@@ -1,0 +1,11 @@
+Nanoglk build
+=================
+
+http://macrofig.blogspot.com/2012/11/junk-in-trunk.html
+http://www.ifarchive.org/if-archive/programming/glk/implementations/nanoglk-0.0.1.tar.gz
+
+The README has comprehensive build instructions
+
+I'm very weak at C programming, but I did hack the Makefile up so it will now compile on Ubuntu 16.04 / 16.10:
+
+nanoglk_Makefile in this folder
