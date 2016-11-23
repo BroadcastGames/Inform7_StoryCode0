@@ -1,0 +1,45 @@
+Known solutions:
+
+1. Fryvm
+2. ClubFloyd
+3. slackif
+4. Guncho
+
+
+slackif
+=================
+http://www.intfiction.org/forum/viewtopic.php?f=7&t=18523
+https://github.com/exposit/slackifpy
+
+Uses stdin stdout and cheapglk?
+
+A new November 2016 slack solution
+============================
+https://www.intfic.com/t/playing-intfic-in-slack-channels-using-frotz-and-aws-lambda/324/4
+
+
+ClubFloyd / FloydBot
+========================
+https://github.com/ziz/sleepmask
+
+uses RemGlk
+
+Floyd-pl source:
+http://ifmud.port4000.com/floyd-pl.txt
+
+
+Guncho
+================
+C#
+
+https://bitbucket.org/jmcgrew/guncho
+https://bitbucket.org/logicmoo/guncho_interp
+
+
+Fizmo+remglk
+=================
+http://www.intfiction.org/forum/viewtopic.php?f=7&t=19868&start=20
+
+changelog: https://fizmo.spellbreaker.org/changelog/
+
+https://github.com/chrender/fizmo

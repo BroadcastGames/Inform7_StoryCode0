@@ -9,3 +9,8 @@ The README has comprehensive build instructions
 I'm very weak at C programming, but I did hack the Makefile up so it will now compile on Ubuntu 16.04 / 16.10:
 
 nanoglk_Makefile in this folder
+
+
+Can SDL 1.2 run on Android?
+=============================
+https://github.com/pelya/commandergenius

@@ -1,0 +1,11 @@
+RemGlk testing notes
+
+1. City of Secrets v3 with Git interpreter
+   1. "z", "z", "z" - you can put cursor into the bottom input window (below the "2:") and the menu works.
+   2. 
+
+
+General technical observations:
+
+1. Story "quit" command crashes server. Although, you can change URL to the root of the Python server and start a new game.
+

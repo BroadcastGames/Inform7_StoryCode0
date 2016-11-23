@@ -2,3 +2,7 @@ from: http://www.intfiction.org/forum/viewtopic.php?f=33&t=10149
 
 apt-get install libao-dev libsndfile-dev libvorbis-dev
 
+NOTE: reports are that Github Frotz 2.44 is not the latest code available
+
+Also note that this branch has commits that are not in the master branch
+https://github.com/DavidGriffith/frotz/tree/ao-curses
