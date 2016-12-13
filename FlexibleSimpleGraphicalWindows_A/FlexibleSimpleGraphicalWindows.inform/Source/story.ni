@@ -1,6 +1,6 @@
 "Flexible and Simple Graphical Windows" by "Community".
 
-The story genre is "Other". The release number is 6.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 7.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -11,9 +11,9 @@ http://docs.textadventures.co.uk/ifanswers/ifanswers.com/662/flexible-windows-ba
 
 **************************************************************************************************
 
-General observerations and desires, if understanding the tools correctly:
+General observations and desires, if understanding the tools correctly:
 
-1. Wihtout any extensions, a Figure can be created and displayed in the main windows that is jpg/png graphic image. This story demonstrates this with the "picture" command in the Field room. Also 'look' in the Field room should also show the image using the same technique.
+1. Without any extensions, a Figure can be created and displayed in the main windows that is jpg/png graphic image. This story demonstrates this with the "picture" command in the Field room. Also 'look' in the Field room should also show the image using the same technique.
 2. There is no ability to size or scale the Figure with the default non-extensions behavior.
 3. DESIRE: is there an extension that can show Figure in the 'non-extension way' that allows scaling? Especially downscale larger images to a size like 'Simple Graphical Window' does - but without the use of a second window? Still following the scrolling main-window approach that is used, but some sense of scaling all png/jpg images to a defined size.
 
@@ -23,6 +23,7 @@ General observerations and desires, if understanding the tools correctly:
 [DEPENDENCY: Simple Graphical Window automatically includes Flexible Windows by Jon Ingold]
 Include version 10/161003 of Simple Graphical Window by Emily Short.
 
+[****:: Window: side window ]
 The side window is a text buffer g-window spawned by the main window.
 The position of the side window is g-placeright.
 The scale method of the side window is g-proportional.
@@ -40,13 +41,15 @@ Carry out toggling the side window:
 		open the side window.
 		
 Toggling the status window is an action out of world.
+
+[**** Window: status, automatically created ]
 Understand "status" as toggling the status window.
 
 Carry out toggling the status window:
 	say "I didn't really implement that ability. Status will not hide/show the status line.";
 	[Use no status line.] [ This only seems to work as a main command? ]
 	
-
+[**** WIndow: border ]
 The border window is a graphics g-window spawned by the side window.
 The position of the border window is g-placeleft. [left of the side window, not the main window]
 The scale method of the border window is g-fixed-size.
@@ -55,13 +58,30 @@ The rock number of the border window is 315. [ "If we set numbers ending in 5 fo
 
 [ The mere inclusion of the Simple Graphical Window extension automatically creates a window named 'graphic window' ]
 
+[**** WIndow: graphics, automatically created by extension ]
 The measurement of the graphics window is 8 [units?].
 The rock number of the graphics window is 325. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering. "]
+
+[**** Window: story-hints ]
+The story-hints window is a text buffer g-window spawned by the main window.
+The position of the story-hints window is g-placebelow.
+The scale method of the story-hints window is g-proportional.
+The measurement of the story-hints window is 2.
+The rock number of the story-hints window is 335. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering. "]
 
 The background color of the side window is "#FFC786". [Peachy]
 The background color of the border window is "#607080". [Grey/Dark Blue]
 The background color of the graphics window is "#FF00FF". [magenta]
+The background color of the story-hints window is "#FFDEA0". [light brown/tan]
 
+Toggling the story-hints window is an action out of world.
+Understand "storyhints" as toggling the story-hints window.
+
+Carry out toggling the story-hints window:
+	if the story-hints window is g-present:
+		close the story-hints window;
+	otherwise:
+		open the story-hints window.
 [
 ToDo: Problem. The border window background does seem to get the desired color on Inform 7 build 6M62. However, the side window seems to only get the default white background.
 Seems this problem is platform dependent.
@@ -210,7 +230,7 @@ Carry out showing the side-altsnapshot:
 		[close and re-open the graphics window seems to trigger image replacement and resize.]
 		close the graphics window;
 		open the graphics window;
-		[Try to return the layout to more like it was before the close/open of graphics window. Testing shows this works, but the image is centered without consideratin of the side window (so the centering is offset to the left). The command 'sidepicture' after this command will center it (but ignores resizing of the graphics window).]
+		[Try to return the layout to more like it was before the close/open of graphics window. Testing shows this works, but the image is centered without consideration of the side window (so the centering is offset to the left). The command 'sidepicture' after this command will center it (but ignores resizing of the graphics window).]
 		close the side window;
 		open the side window;
 	otherwise:
@@ -237,3 +257,6 @@ Rule for refreshing the side window:
 		say "In the Field, the command 'sidepicture' should reveal a land mammal; the command 'sidesnap' should reveal the same land mammal with alternate graphics exchange technique. A third variation, the command 'sidesnapshot' will take even more steps in graphics exchange technique.";
 	otherwise:
 		say "In the Field, there is a land mammal to photograph.".		
+
+Rule for refreshing the story-hints window:
+	say "Stuck in the story? Do not dial 911 in the USA!".
