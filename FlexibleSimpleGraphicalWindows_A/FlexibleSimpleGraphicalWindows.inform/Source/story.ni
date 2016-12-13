@@ -1,5 +1,10 @@
 "Flexible and Simple Graphical Windows" by "Community".
 
+[
+Granted to the Public Domain.
+you are free to use this source code in any way.
+]
+
 The story genre is "Other". The release number is 8.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
