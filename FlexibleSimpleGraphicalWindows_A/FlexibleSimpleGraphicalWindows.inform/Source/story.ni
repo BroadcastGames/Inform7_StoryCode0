@@ -20,7 +20,7 @@ General observations and desires, if understanding the tools correctly:
 
 1. Without any extensions, a Figure can be created and displayed in the main windows that is jpg/png graphic image. This story demonstrates this with the "picture" command in the Field room. Also 'look' in the Field room should also show the image using the same technique.
 2. There is no ability to size or scale the Figure with the default non-extensions behavior.
-3. DESIRE: is there an extension that can show Figure in the 'non-extension way' that allows scaling? Especially downscale larger images to a size like 'Simple Graphical Window' does - but without the use of a second window? Still following the scrolling main-window approach that is used, but some sense of scaling all png/jpg images to a defined size.
+3. DESIRE: is there an extension that can show Figure in the 'non-extension way'  (inline) that allows scaling? Especially downscale larger images to a size like 'Simple Graphical Window' does - but without the use of a second window? Still following the scrolling main-window approach that is used, but some sense of scaling all png/jpg images to a defined size.
 
 ]
 
@@ -43,9 +43,23 @@ Carry out toggling the side window:
 	if the side window is g-present:
 		close the side window;
 	otherwise:
-		open the side window.
+		open the side window;
+		say "I actually should have opened two windows, 'side' and 'border'.".
 		
 Toggling the status window is an action out of world.
+
+Rule for refreshing the side window:
+	say "Side Window Line 1.[line break]More content continues. And now... for something completely different! The quick brown fox jumps over the lazy dog, but we are waiting on the recorded replay to confirm. Background color should be peachy.";
+	say "[line break]";
+	[ToDo: test if we are in the Field room before showing this output:]
+	if the room is Field:
+		say "In the Field, the command 'sidepicture' should reveal a land mammal; the command 'sidesnap' should reveal the same land mammal with alternate graphics exchange technique. A third variation, the command 'sidesnapshot' will take even more steps in graphics exchange technique.";
+	otherwise:
+		say "In the Field, there is a land mammal to photograph.".
+
+After constructing the side window:
+	open the border window.
+
 
 [****:: Window: status, automatically created ]
 Understand "status" as toggling the status window.
@@ -53,7 +67,8 @@ Understand "status" as toggling the status window.
 Carry out toggling the status window:
 	say "I didn't really implement that ability. Status will not hide/show the status line.";
 	[Use no status line.] [ This only seems to work as a main command? ]
-	
+
+
 [**** Window: border ]
 The border window is a graphics g-window spawned by the side window.
 The position of the border window is g-placeleft. [left of the side window, not the main window]
@@ -61,11 +76,12 @@ The scale method of the border window is g-fixed-size.
 The measurement of the border window is 20.
 The rock number of the border window is 315. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
-[ The mere inclusion of the Simple Graphical Window extension automatically creates a window named 'graphic window' ]
 
 [**** Window: graphics, automatically created by extension ]
+[ The mere inclusion of the Simple Graphical Window extension automatically creates a window named 'graphic window' ]
 The measurement of the graphics window is 8 [units?].
 The rock number of the graphics window is 325. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
+
 
 [**** Window: story-hints ]
 The story-hints window is a text buffer g-window spawned by the main window.
@@ -89,6 +105,12 @@ Carry out toggling the story-hints window:
 		close the story-hints window;
 	otherwise:
 		open the story-hints window.
+
+Rule for refreshing the story-hints window:
+	[ToDo: set a counter and increment so we have some idea of how frequently this redraws.]
+	say "Stuck in the story? Do not dial 911 in the USA!".
+
+
 [
 ToDo: Problem. The border window background does seem to get the desired color on Inform 7 build 6M62. However, the side window seems to only get the default white background.
 Seems this problem is platform dependent.
@@ -97,8 +119,7 @@ Quixe also has this bug: https://github.com/erkyrath/quixe/issues/24
 Gargoyle correctly displays the peach background on the side window.
 ]
 
-After constructing the side window:
-	open the border window.
+
 
 [ToDo: we could experiment with appending close/open the graphics window steps as part of the 'After constructing the side window' directive.]
 
@@ -256,15 +277,3 @@ Wild West is a room, west of Place. "You made it to the [red reverse]Wild Occide
 
 Field is a room, east of Place. "This is a large open field. West is the central Place room. Command 'look' will show the field. Command 'picture' will show a second figure. Command 'side window' still works here - and useful to see how the figure images are cropped when there is not enough display space.".
 
-Rule for refreshing the side window:
-	say "Side Window Line 1.[line break]More content continues. And now... for something completely different! The quick brown fox jumps over the lazy dog, but we are waiting on the recorded replay to confirm. Background color should be peachy.";
-	say "[line break]";
-	[ToDo: test if we are in the Field room before showing this output:]
-	if the room is Field:
-		say "In the Field, the command 'sidepicture' should reveal a land mammal; the command 'sidesnap' should reveal the same land mammal with alternate graphics exchange technique. A third variation, the command 'sidesnapshot' will take even more steps in graphics exchange technique.";
-	otherwise:
-		say "In the Field, there is a land mammal to photograph.".		
-
-Rule for refreshing the story-hints window:
-	[ToDo: set a counter and increment so we have some idea of how frequently this redraws.]
-	say "Stuck in the story? Do not dial 911 in the USA!".
