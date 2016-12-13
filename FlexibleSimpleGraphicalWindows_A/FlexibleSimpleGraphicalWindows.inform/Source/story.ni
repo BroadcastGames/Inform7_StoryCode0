@@ -5,7 +5,7 @@ Granted to the Public Domain.
 you are free to use this source code in any way.
 ]
 
-The story genre is "Other". The release number is 8.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 9.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -28,12 +28,12 @@ General observations and desires, if understanding the tools correctly:
 [DEPENDENCY: Simple Graphical Window automatically includes Flexible Windows by Jon Ingold]
 Include version 10/161003 of Simple Graphical Window by Emily Short.
 
-[****:: Window: side window ]
+[****:: Window: side ]
 The side window is a text buffer g-window spawned by the main window.
 The position of the side window is g-placeright.
 The scale method of the side window is g-proportional.
 The measurement of the side window is 33.
-The rock number of the side window is 305. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering. "]
+The rock number of the side window is 305. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 Toggling the side window is an action out of world.
 Understand "side window" as toggling the side window.
@@ -47,32 +47,32 @@ Carry out toggling the side window:
 		
 Toggling the status window is an action out of world.
 
-[**** Window: status, automatically created ]
+[****:: Window: status, automatically created ]
 Understand "status" as toggling the status window.
 
 Carry out toggling the status window:
 	say "I didn't really implement that ability. Status will not hide/show the status line.";
 	[Use no status line.] [ This only seems to work as a main command? ]
 	
-[**** WIndow: border ]
+[**** Window: border ]
 The border window is a graphics g-window spawned by the side window.
 The position of the border window is g-placeleft. [left of the side window, not the main window]
 The scale method of the border window is g-fixed-size.
 The measurement of the border window is 20.
-The rock number of the border window is 315. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering. "]
+The rock number of the border window is 315. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 [ The mere inclusion of the Simple Graphical Window extension automatically creates a window named 'graphic window' ]
 
-[**** WIndow: graphics, automatically created by extension ]
+[**** Window: graphics, automatically created by extension ]
 The measurement of the graphics window is 8 [units?].
-The rock number of the graphics window is 325. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering. "]
+The rock number of the graphics window is 325. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 [**** Window: story-hints ]
 The story-hints window is a text buffer g-window spawned by the main window.
 The position of the story-hints window is g-placebelow.
 The scale method of the story-hints window is g-proportional.
 The measurement of the story-hints window is 2.
-The rock number of the story-hints window is 335. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering. "]
+The rock number of the story-hints window is 335. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 The background color of the side window is "#FFC786". [Peachy]
 The background color of the border window is "#607080". [Grey/Dark Blue]
