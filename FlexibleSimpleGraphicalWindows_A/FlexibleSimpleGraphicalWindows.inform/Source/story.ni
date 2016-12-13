@@ -1,6 +1,6 @@
 "Flexible and Simple Graphical Windows" by "Community".
 
-The story genre is "Other". The release number is 7.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 8.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -76,6 +76,8 @@ The background color of the story-hints window is "#FFDEA0". [light brown/tan]
 
 Toggling the story-hints window is an action out of world.
 Understand "storyhints" as toggling the story-hints window.
+Understand "story-hints" as toggling the story-hints window.
+Understand "story hints" as toggling the story-hints window.
 
 Carry out toggling the story-hints window:
 	if the story-hints window is g-present:
@@ -243,7 +245,7 @@ Carry out showing the side-altsnapshot:
 ]
 
 
-Place is a room. "Type 'side window' to toggle. A border window should also appear, three windows in total. This line continues to be lengthy so that you can see how word wrapping is impacted by the toggle of the side window. The quick brown fox jumps over the lazy dog, or did he? Try going west to see letter coloring. East is a Field with graphic images. Commands 'apng' and 'agif' should work anywhere.".
+Place is a room. "Type 'side window' to toggle, another toggle is 'storyhints'. A border window should also appear, three windows in total. This line continues to be lengthy so that you can see how word wrapping is impacted by the toggle of the side window. The quick brown fox jumps over the lazy dog, or did he? Try going west to see letter coloring. East is a Field with graphic images. Commands 'apng' and 'agif' should work anywhere.".
 
 Wild West is a room, west of Place. "You made it to the [red reverse]Wild Occidental[default letters], type [highlighted letters]'east'[default letters] to return to Place. [redfox letters]Je ne puis pas jouer avec toi, dit le renard."
 
@@ -259,4 +261,5 @@ Rule for refreshing the side window:
 		say "In the Field, there is a land mammal to photograph.".		
 
 Rule for refreshing the story-hints window:
+	[ToDo: set a counter and increment so we have some idea of how frequently this redraws.]
 	say "Stuck in the story? Do not dial 911 in the USA!".
