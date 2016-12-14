@@ -5,7 +5,7 @@ Granted to the Public Domain.
 you are free to use this source code in any way.
 ]
 
-The story genre is "Other". The release number is 10.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 12.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -94,13 +94,9 @@ The rock number of the graphics window is 325. [ "If we set numbers ending in 5 
 The story-hints window is a text buffer g-window spawned by the main window.
 The position of the story-hints window is g-placebelow.
 The scale method of the story-hints window is g-proportional.
-The measurement of the story-hints window is 2.
+[ Testing on interpreters shows that window size 1 is too small. 2 or 3 causes problems on GlkOte but 2 looks fine on Inform 7 IDE. 2 seems trouble on Windows 10 Glulxe interpreter, but 3 seems good there.]
+The measurement of the story-hints window is 3.
 The rock number of the story-hints window is 335. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
-
-The background color of the side window is "#FFC786". [Peachy]
-The background color of the border window is "#607080". [Grey/Dark Blue]
-The background color of the graphics window is "#FF00FF". [magenta]
-The background color of the story-hints window is "#FFDEA0". [light brown/tan]
 
 Toggling the story-hints window is an action out of world.
 Understand "storyhints" as toggling the story-hints window.
@@ -156,6 +152,11 @@ To say highlighted letters:
 To say redfox letters:
 	say special-style-1;
 
+The background color of the side window is "#FFC786". [Peachy]
+The background color of the border window is "#607080". [Grey/Dark Blue]
+The background color of the graphics window is "#FF00FF". [magenta]
+The background color of the story-hints window is "#FFDEA0". [light brown/tan]
+
 
 [
 ======================================================================================
@@ -196,7 +197,7 @@ Carry out showing the animated-png:
 Showing the animated-gif is an action out of world. Understand "agif" as showing the animated-gif. [No restrictions on room.]
 
 Carry out showing the animated-gif:
-	say "Here is a small animated gif graph[line break]ic of a math equation from Wikimedia user Petrus3743. On Firefox it seems to bounce, on Chrome it does not? It's expected most game interpreters will not show it animated. Should be in the main window inline, like this text.";
+	say "Here is a small animated gif graphic of a math equation from Wikimedia user Petrus3743. On Firefox it seems to bounce, on Chrome it does not? It's expected most game interpreters will not show it animated. Should be in the main window inline, like this text.";
 	display figure gif-animated-equation.
 
 
@@ -280,7 +281,8 @@ Carry out showing the side-altsnapshot:
 ======================================================================================
 ]
 
-[The order that they are opened determines the resulting layout. We want the hints to have the full width of the screen like status? ]
+[The order that they are opened determines the resulting layout. We want the hints to have the full width of the screen like status? 
+WARNING: on a Release build, the test command gets stripped? ]
 Test allwindows with "storyhints / side window".
 
 
