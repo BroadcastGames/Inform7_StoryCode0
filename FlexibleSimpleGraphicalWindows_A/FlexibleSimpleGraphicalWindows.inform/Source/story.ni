@@ -5,7 +5,7 @@ Granted to the Public Domain.
 you are free to use this source code in any way.
 ]
 
-The story genre is "Other". The release number is 9.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 10.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -27,6 +27,13 @@ General observations and desires, if understanding the tools correctly:
 [Include version 15/161003 of Flexible Windows by Jon Ingold.]
 [DEPENDENCY: Simple Graphical Window automatically includes Flexible Windows by Jon Ingold]
 Include version 10/161003 of Simple Graphical Window by Emily Short.
+
+
+[
+======================================================================================
+==  Windows
+======================================================================================
+]
 
 [****:: Window: side ]
 The side window is a text buffer g-window spawned by the main window.
@@ -120,8 +127,8 @@ Gargoyle correctly displays the peach background on the side window.
 ]
 
 
-
 [ToDo: we could experiment with appending close/open the graphics window steps as part of the 'After constructing the side window' directive.]
+
 
 [
 ======================================================================================
@@ -168,6 +175,7 @@ Figure png-animated-ball is the file "Animated_PNG_example_bouncing_beach_ball.p
 [Figure gif-animated-equation is the file "01-Siebzehneck-Animatiom-Variation.gif" [off Wikipedia.org, author Petrus3743].]
 Figure gif-animated-equation is the file "01-Siebzehneck-Animatiom-Variation_tricknamed0.jpg" [gif hammered into name jpg to trick Release of Blorb].
 
+
 [
 ======================================================================================
 ==  Anywhere Images Logic
@@ -188,8 +196,9 @@ Carry out showing the animated-png:
 Showing the animated-gif is an action out of world. Understand "agif" as showing the animated-gif. [No restrictions on room.]
 
 Carry out showing the animated-gif:
-	say "Here is a small animated gif graphic of a math equation from Wikimedia user Petrus3743. On Firefox it seems to bounce, on Chrome it does not? It's expected most game interpreters will not show it animated. Should be in the main window inline, like this text.";
+	say "Here is a small animated gif graph[line break]ic of a math equation from Wikimedia user Petrus3743. On Firefox it seems to bounce, on Chrome it does not? It's expected most game interpreters will not show it animated. Should be in the main window inline, like this text.";
 	display figure gif-animated-equation.
+
 
 [
 ======================================================================================
@@ -264,14 +273,24 @@ Carry out showing the side-altsnapshot:
 	otherwise:
 		say "The side window is currently closed. This convoluted example needs it open first before you can grab that snapshot.".	
 
+
+[
+======================================================================================
+==  Test scripts
+======================================================================================
+]
+
+[The order that they are opened determines the resulting layout. We want the hints to have the full width of the screen like status? ]
+Test allwindows with "storyhints / side window".
+
+
 [
 ======================================================================================
 ==  Main Story Logic of rooms
 ======================================================================================
 ]
 
-
-Place is a room. "Type 'side window' to toggle, another toggle is 'storyhints'. A border window should also appear, three windows in total. This line continues to be lengthy so that you can see how word wrapping is impacted by the toggle of the side window. The quick brown fox jumps over the lazy dog, or did he? Try going west to see letter coloring. East is a Field with graphic images. Commands 'apng' and 'agif' should work anywhere.".
+Place is a room. "Type 'side window' to toggle, another toggle is 'storyhints'. A border window should also appear, three windows in total. This line continues to be lengthy so that you can see how word wrapping is impacted by the toggle of the side window. The quick brown fox jumps over the lazy dog, or did he? Try going west to see letter coloring. East is a Field with graphic images.[line break]Commands 'apng' and 'agif' should work anywhere. Command 'test allwindows' should open 5-window layout.".
 
 Wild West is a room, west of Place. "You made it to the [red reverse]Wild Occidental[default letters], type [highlighted letters]'east'[default letters] to return to Place. [redfox letters]Je ne puis pas jouer avec toi, dit le renard."
 
