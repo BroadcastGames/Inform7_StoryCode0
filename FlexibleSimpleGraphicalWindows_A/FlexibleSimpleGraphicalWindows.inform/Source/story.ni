@@ -16,7 +16,7 @@ ToDo features:
    2. "Dark Cities" centers the status, looks nicer.
 ]
 
-The story genre is "Other". The release number is 16.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 18.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -62,6 +62,20 @@ Include version 10/161003 of Simple Graphical Window by Emily Short.
 
 Chapter - Output Windows
 
+
+Fake Graphics is a truth state variable. Fake Graphics is usually true.
+
+When play begins:
+	[ The '10/161003 of Simple Graphical Window by Emily Short' by default will not auto-open window if this condition is not met. ]
+	if glulx graphics is supported:
+		Say "TECH00: Glulx graphics are supported!";
+		now Fake Graphics is false;
+	otherwise:
+		Say "TECH00: Interpreter indicated that Glulx graphics are not supported.";
+	[now Fake Graphics is true;]
+
+
+
 [****:: Window: status, automatically created ]
 Toggling the status window is an action out of world. Understand "status" as toggling the status window.
 
@@ -73,8 +87,21 @@ Carry out toggling the status window:
 Use no status line.
 
 
+[**** Window: chargraphics ]
+[ No graphics, fake ASCII Art 'char' graphics window. ]
+The chargraphics window is a text buffer g-window spawned by the main window.
+The scale method of the chargraphics window is g-fixed-size.
+The measurement of the chargraphics window is 36 [units?].
+The position of the chargraphics window is g-placeright.
+The rock number of the chargraphics window is 335. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
+
+Rule for refreshing the chargraphics window:
+	say "ASCII ART work[line break]Graphics are turned off to accommodate current releases of RemGlk. this is scaled g-fixed-size, how does that change things?";
+	say "[line break]";
+
+
 [****:: Window: side ]
-The side window is a text buffer g-window spawned by the graphics window.
+The side window is a text buffer g-window spawned by the chargraphics window.
 The position of the side window is g-placebelow.
 The scale method of the side window is g-proportional.
 The measurement of the side window is 60.
@@ -121,6 +148,9 @@ The position of the graphics window is g-placeright.
 The rock number of the graphics window is 325. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 
+
+
+
 [**** Window: story-hints ]
 [ Intention is to have a single-line like in 'Dead Cities' or '' ]
 The story-hints window is a text buffer g-window spawned by the main window.
@@ -128,7 +158,7 @@ The position of the story-hints window is g-placebelow.
 The scale method of the story-hints window is g-proportional.
 [ Testing on interpreters shows that window size 1 is too small. 2 or 3 causes problems on GlkOte but 2 looks fine on Inform 7 IDE. 2 seems trouble on Windows 10 Glulxe interpreter, but 3 seems good there. 6 seems to eliminate MORE on GlkOte.  12 makes the text appear on Gargoyle, but clearly there is space for two lines, yet you get -more- prompt if you send 2 lines of content and don't resize. ]
 The measurement of the story-hints window is 4.
-The rock number of the story-hints window is 335. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
+The rock number of the story-hints window is 345. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 Toggling the story-hints window is an action out of world.
 Understand "storyhints" as toggling the story-hints window.
@@ -187,6 +217,7 @@ To say redfox letters:
 The background color of the side window is "#FFC786". [Peachy]
 The background color of the info1-border window is "#607080". [Grey/Dark Blue]
 The background color of the graphics window is "#FF00FF". [magenta]
+The background color of the chargraphics window is "#FF00FF". [magenta]
 The background color of the story-hints window is "#FFDEA0". [light brown/tan]
 
 
@@ -334,11 +365,17 @@ This is the open up Complex Layout rule:
 	close the graphics window;
 	open up the status window;
 	open the story-hints window;
-	open the graphics window;
+	if Fake Graphics is true:
+		open the chargraphics window;
+		now the side window is spawned by the chargraphics window;
+	otherwise:
+		open the graphics window;
+		now the side window is spawned by the graphics window;
 	open side window;
 	open info1-border window;
 	[ This refresh is essential or the graphic will be centered relative to the height of the full window (screen) and not the new height. ]
-	refresh the graphics window;
+	if Fake Graphics is false:
+		refresh the graphics window; 
 	say "TECH00: Opened windows following the Complex Layout rule.";
 
 [ToDo: implement toggle for 'complexlayout' command to collapse to small-screen single-window behavior.]
