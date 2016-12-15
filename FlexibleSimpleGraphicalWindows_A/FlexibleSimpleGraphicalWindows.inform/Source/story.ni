@@ -9,10 +9,10 @@ NOTE: Graphic images may have their own license, check them independently.
 
 [
 ToDo Bugs:
-   1. Opening the graphic is centered wrong and resizing the window triggers correct position.
+   1. Gargoyle on Ubuntu 16.10 and Windows 10 both do not show the status line on bottom. Windows Git and Windows Glulxe both show it correctly, as does the Inform 7 IDE 6M62 on Ubuntu.
 
 ToDo features:
-   1. "Dark Cities" has much nicer black borders on the story-hints window.
+   1. "Dark Cities" has much nicer black borders on the story-hints window. How is this done?
    2. "Dark Cities" centers the status, looks nicer.
 ]
 
@@ -148,21 +148,16 @@ The position of the graphics window is g-placeright.
 The rock number of the graphics window is 325. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 
-
-
-
 [**** Window: story-hints ]
-[ Intention is to have a single-line like in 'Dead Cities' or '' ]
+[ Intention is to have a single-line like in 'Dead Cities'  ]
 The story-hints window is a text buffer g-window spawned by the main window.
 The position of the story-hints window is g-placebelow.
-
+[ This is the way the status window is defined in the Flexible Windows extension. ]
 The scale method of the story-hints window is g-fixed-size.
 The measurement of the story-hints window is 1.
-
 [ Testing on interpreters shows that window measurement value of 5 is what works for RemGlk with 80x24 screen size to yield a single line. 4 or less results in 0 height of window. ]
 [The scale method of the story-hints window is g-proportional.
 The measurement of the story-hints window is 5.]
-
 The rock number of the story-hints window is 345. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 Toggling the story-hints window is an action out of world.
@@ -355,7 +350,7 @@ Last when play begins (this is the check screen size rule):
 		say "TECH00: Complex Layout are turned off . The command 'complexlayout' will enable the windows.[line break]";
 	otherwise:
 		if width of the main window is less than 80 or height of the main window is less than 24:
-			say "WARNING: Your Interpreter's main window is too small @ [width of the main window]x[height of the main window] for you to use the Complex Layout. This needs 80x24 or larger. Maximize your window if you can, the command 'complexlayout' will enable the additional windows.[line break]";
+			say "WARNING: Your Interpreter's main window is too small @ [width of the main window]x[height of the main window] for you to use the Complex Layout. This needs 80x24 or larger. Maximize your window if you can, the command 'complexlayout' will enable the additional windows or command 'restart' should redraw everything.[line break]";
 			now LayoutA is false;
 		otherwise:
 			say "TECH00: Screen detected size [width of the main window]x[height of the main window].";
