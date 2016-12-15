@@ -1,18 +1,23 @@
 "Flexible and Simple Graphical Windows" by "Community".
 
 [
-Granted to the Public Domain.
+Source code granted to the Public Domain.
 you are free to use this source code in any way.
+Typically that means this code can be mixed with code that uses any other license, as Public Domain is the most free of any license. You are not required to share your source or even credit the authors.
+NOTE: Graphic images may have their own license, check them independently.
 ]
 
-The story genre is "Other". The release number is 12.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 14.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
-This is all about pure Glulx, not Z-Machine.
+This is all about pure Glulx, not Z-Machine. It would be nice to have a "Flexible Windows"  extension that supported both, but that does not seem to be the situation in late 2016.
 
 reference:
 http://docs.textadventures.co.uk/ifanswers/ifanswers.com/662/flexible-windows-background-window-always-another-inform.html
+
+"The Glk Screen Model"
+http://gwindows.trenchcoatsoft.com/gwin3.htm
 
 **************************************************************************************************
 
@@ -35,6 +40,20 @@ Include version 10/161003 of Simple Graphical Window by Emily Short.
 ======================================================================================
 ]
 
+Chapter - Output Windows
+
+[****:: Window: status, automatically created ]
+
+Toggling the status window is an action out of world. Understand "status" as toggling the status window.
+
+Carry out toggling the status window:
+	say "I didn't really implement that ability. Status will not hide/show the status line.";
+	[Use no status line.] [ This only seems to work as a main command? ]
+
+[ Disable the status line pm startup to prevent reverse text. status line can be opened manually. ]
+Use no status line.
+
+
 [****:: Window: side ]
 The side window is a text buffer g-window spawned by the main window.
 The position of the side window is g-placeright.
@@ -52,8 +71,6 @@ Carry out toggling the side window:
 	otherwise:
 		open the side window;
 		say "I actually should have opened two windows, 'side' and 'border'.".
-		
-Toggling the status window is an action out of world.
 
 Rule for refreshing the side window:
 	say "Side Window Line 1.[line break]More content continues. And now... for something completely different! The quick brown fox jumps over the lazy dog, but we are waiting on the recorded replay to confirm. Background color should be peachy.";
@@ -68,14 +85,6 @@ After constructing the side window:
 	open the border window.
 
 
-[****:: Window: status, automatically created ]
-Understand "status" as toggling the status window.
-
-Carry out toggling the status window:
-	say "I didn't really implement that ability. Status will not hide/show the status line.";
-	[Use no status line.] [ This only seems to work as a main command? ]
-
-
 [**** Window: border ]
 The border window is a graphics g-window spawned by the side window.
 The position of the border window is g-placeleft. [left of the side window, not the main window]
@@ -86,16 +95,18 @@ The rock number of the border window is 315. [ "If we set numbers ending in 5 fo
 
 [**** Window: graphics, automatically created by extension ]
 [ The mere inclusion of the Simple Graphical Window extension automatically creates a window named 'graphic window' ]
-The measurement of the graphics window is 8 [units?].
+The measurement of the graphics window is 20 [units?].
+The position of the graphics window is g-placeright.
 The rock number of the graphics window is 325. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 
 [**** Window: story-hints ]
+[ Intention is to have a single-line like in 'Dead Cities' or '' ]
 The story-hints window is a text buffer g-window spawned by the main window.
 The position of the story-hints window is g-placebelow.
 The scale method of the story-hints window is g-proportional.
-[ Testing on interpreters shows that window size 1 is too small. 2 or 3 causes problems on GlkOte but 2 looks fine on Inform 7 IDE. 2 seems trouble on Windows 10 Glulxe interpreter, but 3 seems good there.]
-The measurement of the story-hints window is 3.
+[ Testing on interpreters shows that window size 1 is too small. 2 or 3 causes problems on GlkOte but 2 looks fine on Inform 7 IDE. 2 seems trouble on Windows 10 Glulxe interpreter, but 3 seems good there. 6 seems to eliminate MORE on GlkOte.  12 makes the text appear on Gargoyle, but clearly there is space for two lines, yet you get -more- prompt if you send 2 lines of content and don't resize. ]
+The measurement of the story-hints window is 4.
 The rock number of the story-hints window is 335. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 Toggling the story-hints window is an action out of world.
@@ -167,6 +178,8 @@ The background color of the story-hints window is "#FFDEA0". [light brown/tan]
 
        gif format is formally disallowed in the Blorb distribution, reference: http://www.intfiction.org/forum/viewtopic.php?f=7&t=20659
 ]
+
+Chapter - Image Assets
 
 Figure field-illustration is the file "field.png".
 Figure duck-illustration is the file "duck.png".
@@ -273,6 +286,30 @@ Carry out showing the side-altsnapshot:
 		open the side window;
 	otherwise:
 		say "The side window is currently closed. This convoluted example needs it open first before you can grab that snapshot.".	
+
+
+Chapter - Startup Story
+
+Complex Layout is a truth state variable. Complex Layout is true.
+LayoutA is a truth state variable. LayoutA is true.
+
+Last when play begins (this is the check screen size rule):
+	if Complex Layout is false:
+		say "TECH00: Complex Layout are turned off . The command 'complexlayout' will enable the windows.[line break]";
+	otherwise:
+		if width of the main window is less than 80 or height of the main window is less than 24:
+			say "WARNING: Your Interpreter's main window is too small @ [width of the main window]x[height of the main window] for you to use the Complex Layout. This needs 80x24 or larger. Maximize your window if you can, the command 'complexlayout' will enable the additional windows.[line break]";
+			now LayoutA is false;
+		otherwise:
+			say "TECH00: Screen detected size [width of the main window]x[height of the main window].";
+			follow the open up Complex Layout rule.
+
+This is the open up Complex Layout rule:
+	[ Note: the order windows are opened determines the size and parent relationship. ]
+	open the story-hints window;
+	open side window;
+	open up the status window;
+	say "TECH00: opened Complex Layout rule.";
 
 
 [
