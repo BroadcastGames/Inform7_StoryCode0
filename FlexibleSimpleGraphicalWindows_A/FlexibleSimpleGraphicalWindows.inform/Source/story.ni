@@ -1,4 +1,4 @@
-"Flexible and Simple Graphical Windows" by "Community".
+"Flexible & Simple Graphical Windows Demo Zebra" by "Community".
 
 [
 Source code granted to the Public Domain.
@@ -7,7 +7,16 @@ Typically that means this code can be mixed with code that uses any other licens
 NOTE: Graphic images may have their own license, check them independently.
 ]
 
-The story genre is "Other". The release number is 14.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+[
+ToDo Bugs:
+   1. Opening the graphic is centered wrong and resizing the window triggers correct position.
+
+ToDo features:
+   1. "Dark Cities" has much nicer black borders on the story-hints window.
+   2. "Dark Cities" centers the status, looks nicer.
+]
+
+The story genre is "Other". The release number is 15.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -18,6 +27,8 @@ http://docs.textadventures.co.uk/ifanswers/ifanswers.com/662/flexible-windows-ba
 
 "The Glk Screen Model"
 http://gwindows.trenchcoatsoft.com/gwin3.htm
+
+This has evolved to try and reproduce the 5-window layout shown in the story "Dead Cities by Jon Ingold" with modern Inform 7 6M62 builds.
 
 **************************************************************************************************
 
@@ -43,7 +54,6 @@ Include version 10/161003 of Simple Graphical Window by Emily Short.
 Chapter - Output Windows
 
 [****:: Window: status, automatically created ]
-
 Toggling the status window is an action out of world. Understand "status" as toggling the status window.
 
 Carry out toggling the status window:
@@ -55,10 +65,10 @@ Use no status line.
 
 
 [****:: Window: side ]
-The side window is a text buffer g-window spawned by the main window.
-The position of the side window is g-placeright.
+The side window is a text buffer g-window spawned by the graphics window.
+The position of the side window is g-placebelow.
 The scale method of the side window is g-proportional.
-The measurement of the side window is 33.
+The measurement of the side window is 60.
 The rock number of the side window is 305. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 Toggling the side window is an action out of world.
@@ -89,13 +99,13 @@ After constructing the side window:
 The border window is a graphics g-window spawned by the side window.
 The position of the border window is g-placeleft. [left of the side window, not the main window]
 The scale method of the border window is g-fixed-size.
-The measurement of the border window is 20.
+The measurement of the border window is 8.
 The rock number of the border window is 315. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 
 [**** Window: graphics, automatically created by extension ]
 [ The mere inclusion of the Simple Graphical Window extension automatically creates a window named 'graphic window' ]
-The measurement of the graphics window is 20 [units?].
+The measurement of the graphics window is 36 [units?].
 The position of the graphics window is g-placeright.
 The rock number of the graphics window is 325. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
@@ -305,11 +315,19 @@ Last when play begins (this is the check screen size rule):
 			follow the open up Complex Layout rule.
 
 This is the open up Complex Layout rule:
-	[ Note: the order windows are opened determines the size and parent relationship. ]
-	open the story-hints window;
-	open side window;
+	[ Note: the order windows are opened determines the size and parent relationship.
+	   status window we desire: full width.
+	   story-hints window we desire: full width.
+	   These are a 'matched pair' visually.
+	 ]
+	close the graphics window;
 	open up the status window;
-	say "TECH00: opened Complex Layout rule.";
+	open the story-hints window;
+	open the graphics window;
+	open side window;
+	say "TECH00: Opened windows following Complex Layout rule.";
+
+[ToDo: implement toggle for 'complexlayout' command to collapse to small-screen single-window behavior.]
 
 
 [
