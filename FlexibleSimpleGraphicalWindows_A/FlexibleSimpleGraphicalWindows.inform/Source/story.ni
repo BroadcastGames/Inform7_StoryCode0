@@ -16,7 +16,7 @@ ToDo features:
    2. "Dark Cities" centers the status, looks nicer.
 ]
 
-The story genre is "Other". The release number is 15.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 16.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -28,7 +28,11 @@ http://docs.textadventures.co.uk/ifanswers/ifanswers.com/662/flexible-windows-ba
 "The Glk Screen Model"
 http://gwindows.trenchcoatsoft.com/gwin3.htm
 
-This has evolved to try and reproduce the 5-window layout shown in the story "Dead Cities by Jon Ingold" with modern Inform 7 6M62 builds.
+Late 2016 of window background colors:
+https://github.com/i7/counterfeit-monkey/issues/63
+
+
+This source code has evolved to try and reproduce the 5-window layout shown in the story "Dead Cities by Jon Ingold" with modern Inform 7 6M62 builds.
 
 **************************************************************************************************
 
@@ -37,6 +41,11 @@ General observations and desires, if understanding the tools correctly:
 1. Without any extensions, a Figure can be created and displayed in the main windows that is jpg/png graphic image. This story demonstrates this with the "picture" command in the Field room. Also 'look' in the Field room should also show the image using the same technique.
 2. There is no ability to size or scale the Figure with the default non-extensions behavior.
 3. DESIRE: is there an extension that can show Figure in the 'non-extension way'  (inline) that allows scaling? Especially downscale larger images to a size like 'Simple Graphical Window' does - but without the use of a second window? Still following the scrolling main-window approach that is used, but some sense of scaling all png/jpg images to a defined size.
+
+Scale comments in 2015 on the state of Glk and technique to measure graphic images:
+
+1.  http://www.intfiction.org/forum/viewtopic.php?f=7&t=18151
+
 
 ]
 
@@ -91,16 +100,18 @@ Rule for refreshing the side window:
 	otherwise:
 		say "In the Field, there is a land mammal to photograph.".
 
+[
 After constructing the side window:
-	open the border window.
+	open the info1-border window.
+	]
 
 
-[**** Window: border ]
-The border window is a graphics g-window spawned by the side window.
-The position of the border window is g-placeleft. [left of the side window, not the main window]
-The scale method of the border window is g-fixed-size.
-The measurement of the border window is 8.
-The rock number of the border window is 315. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
+[**** Window: info1-border ]
+The info1-border window is a graphics g-window spawned by the side window.
+The position of the info1-border window is g-placeleft. [left of the side window, not the main window]
+The scale method of the info1-border window is g-fixed-size.
+The measurement of the info1-border window is 8.
+The rock number of the info1-border window is 315. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 
 [**** Window: graphics, automatically created by extension ]
@@ -174,7 +185,7 @@ To say redfox letters:
 	say special-style-1;
 
 The background color of the side window is "#FFC786". [Peachy]
-The background color of the border window is "#607080". [Grey/Dark Blue]
+The background color of the info1-border window is "#607080". [Grey/Dark Blue]
 The background color of the graphics window is "#FF00FF". [magenta]
 The background color of the story-hints window is "#FFDEA0". [light brown/tan]
 
@@ -325,7 +336,10 @@ This is the open up Complex Layout rule:
 	open the story-hints window;
 	open the graphics window;
 	open side window;
-	say "TECH00: Opened windows following Complex Layout rule.";
+	open info1-border window;
+	[ This refresh is essential or the graphic will be centered relative to the height of the full window (screen) and not the new height. ]
+	refresh the graphics window;
+	say "TECH00: Opened windows following the Complex Layout rule.";
 
 [ToDo: implement toggle for 'complexlayout' command to collapse to small-screen single-window behavior.]
 
