@@ -16,7 +16,7 @@ ToDo features:
    2. "Dark Cities" centers the status, looks nicer.
 ]
 
-The story genre is "Other". The release number is 18.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 19.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -155,9 +155,14 @@ The rock number of the graphics window is 325. [ "If we set numbers ending in 5 
 [ Intention is to have a single-line like in 'Dead Cities' or '' ]
 The story-hints window is a text buffer g-window spawned by the main window.
 The position of the story-hints window is g-placebelow.
-The scale method of the story-hints window is g-proportional.
-[ Testing on interpreters shows that window size 1 is too small. 2 or 3 causes problems on GlkOte but 2 looks fine on Inform 7 IDE. 2 seems trouble on Windows 10 Glulxe interpreter, but 3 seems good there. 6 seems to eliminate MORE on GlkOte.  12 makes the text appear on Gargoyle, but clearly there is space for two lines, yet you get -more- prompt if you send 2 lines of content and don't resize. ]
-The measurement of the story-hints window is 4.
+
+The scale method of the story-hints window is g-fixed-size.
+The measurement of the story-hints window is 1.
+
+[ Testing on interpreters shows that window measurement value of 5 is what works for RemGlk with 80x24 screen size to yield a single line. 4 or less results in 0 height of window. ]
+[The scale method of the story-hints window is g-proportional.
+The measurement of the story-hints window is 5.]
+
 The rock number of the story-hints window is 345. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 Toggling the story-hints window is an action out of world.
