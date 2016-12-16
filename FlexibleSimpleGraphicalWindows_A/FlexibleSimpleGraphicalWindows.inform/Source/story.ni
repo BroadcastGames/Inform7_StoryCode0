@@ -16,7 +16,7 @@ ToDo features:
    2. "Dark Cities" centers the status, looks nicer.
 ]
 
-The story genre is "Other". The release number is 20.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 21.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -120,7 +120,7 @@ The chargraphics window is a text buffer g-window spawned by the main window.
 The scale method of the chargraphics window is g-fixed-size.
 The measurement of the chargraphics window is 36 [units?].
 The position of the chargraphics window is g-placeright.
-The rock number of the chargraphics window is 335. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
+The rock number of the chargraphics window is 305. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 Rule for refreshing the chargraphics window:
 	say "ASCII ART work[line break]Graphics are turned off to accommodate current releases of RemGlk. this is scaled g-fixed-size, how does that change things?";
@@ -132,7 +132,7 @@ The side window is a text buffer g-window spawned by the chargraphics window.
 The position of the side window is g-placebelow.
 The scale method of the side window is g-proportional.
 The measurement of the side window is 60.
-The rock number of the side window is 305. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
+The rock number of the side window is 315. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 Toggling the side window is an action out of world.
 Understand "side window" as toggling the side window.
@@ -165,14 +165,22 @@ The info1-border window is a graphics g-window spawned by the side window.
 The position of the info1-border window is g-placeleft. [left of the side window, not the main window]
 The scale method of the info1-border window is g-fixed-size.
 The measurement of the info1-border window is 8.
-The rock number of the info1-border window is 315. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
+The rock number of the info1-border window is 325. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
+
+
+[**** Window: info1-border-nongraphic ]
+The info1-border-nongraphic window is a text buffer g-window spawned by the side window.
+The position of the info1-border-nongraphic  window is g-placeleft. [left of the side window, not the main window]
+The scale method of the info1-border-nongraphic  window is g-fixed-size.
+The measurement of the info1-border-nongraphic  window is 1.
+The rock number of the info1-border-nongraphic  window is 335. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 
 [**** Window: graphics, automatically created by extension ]
 [ The mere inclusion of the Simple Graphical Window extension automatically creates a window named 'graphic window' ]
 The measurement of the graphics window is 36 [units?].
 The position of the graphics window is g-placeright.
-The rock number of the graphics window is 325. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
+The rock number of the graphics window is 345. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 
 [**** Window: story-hints ]
@@ -185,7 +193,7 @@ The measurement of the story-hints window is 1.
 [ Testing on interpreters shows that window measurement value of 5 is what works for RemGlk with 80x24 screen size to yield a single line. 4 or less results in 0 height of window. ]
 [The scale method of the story-hints window is g-proportional.
 The measurement of the story-hints window is 5.]
-The rock number of the story-hints window is 345. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
+The rock number of the story-hints window is 355. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 Toggling the story-hints window is an action out of world.
 Understand "storyhints" as toggling the story-hints window.
@@ -339,11 +347,9 @@ Check showing the side-altpicture when the location is not the field:
 Carry out showing the side-altpicture:
 	if the side window is g-present:
 		now the currently shown picture is figure gopher-snapshot;
-		say "I just changed the graphics window picture to the gopher; will now close and open window.";
-		now the measurement of the graphics window is 24 [units?];
-		[close and re-open the graphics window seems to trigger image replacement and resize.]
-		close the graphics window;
-		open the graphics window;
+		say "I just changed the graphics window picture to the gopher; will now refresh the window.";
+		now the measurement of the graphics window is 24 [characters wide in the land of 80x25 CGA layout];
+		refresh the graphics window;
 	otherwise:
 		say "The side window is currently closed. This convoluted example needs it open first before you can grab that snapshot.".
 
@@ -355,14 +361,9 @@ Check showing the side-altsnapshot when the location is not the field:
 Carry out showing the side-altsnapshot:
 	if the side window is g-present:
 		now the currently shown picture is figure gopher-snapshot;
-		say "I just changed the graphics window picture to the gopher; will now close and open graphics window then the side window.";
-		now the measurement of the graphics window is 24 [units?];
-		[close and re-open the graphics window seems to trigger image replacement and resize.]
-		close the graphics window;
-		open the graphics window;
-		[Try to return the layout to more like it was before the close/open of graphics window. Testing shows this works, but the image is centered without consideration of the side window (so the centering is offset to the left). The command 'sidepicture' after this command will center it (but ignores resizing of the graphics window).]
-		close the side window;
-		open the side window;
+		say "I just changed the graphics window picture to the gopher; will now refresh the window.";
+		now the measurement of the graphics window is 24 [characters wide in the land of 80x25 CGA layout];
+		refresh the graphics window;
 	otherwise:
 		say "The side window is currently closed. This convoluted example needs it open first before you can grab that snapshot.".	
 
@@ -402,10 +403,12 @@ This is the open up Complex Layout rule:
 		open the graphics window;
 		now the side window is spawned by the graphics window;
 	open side window;
-	open info1-border window;
-	[ This refresh is essential or the graphic will be centered relative to the height of the full window (screen) and not the new height. ]
-	if Fake Graphics is false:
-		refresh the graphics window; 
+	[ This refresh is essential or the graphic will be centered relative to the height of the full window (screen) and not the new height after opeining the side window. ]
+	if Fake Graphics is true:
+		open info1-border-nongraphic window;
+	otherwise:
+		open info1-border window;
+		refresh the graphics window;
 	say "TECH00: Opened windows following the Complex Layout rule.";
 
 [ToDo: implement toggle for 'complexlayout' command to collapse to small-screen single-window behavior.]
