@@ -16,7 +16,7 @@ ToDo features:
    2. "Dark Cities" centers the status, looks nicer.
 ]
 
-The story genre is "Other". The release number is 19.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 20.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -52,6 +52,33 @@ Scale comments in 2015 on the state of Glk and technique to measure graphic imag
 [Include version 15/161003 of Flexible Windows by Jon Ingold.]
 [DEPENDENCY: Simple Graphical Window automatically includes Flexible Windows by Jon Ingold]
 Include version 10/161003 of Simple Graphical Window by Emily Short.
+
+[
+A bit of history: Flexible Windows had a Hyperlinks feature up until version 15. It was removed from the extension because it did not really fit with the name of the extension. "Hyperlinks by Dannii Willis" was created in October 2016 to provide the functionality that previously existed in earlier versions of Flexible Windows.
+]
+Include Hyperlinks by Dannii Willis.
+
+
+Chapter - Hyperlinks
+
+[
+======================================================================================
+==  Hyperlink table
+======================================================================================
+Since many stories may share basic command, let's make the first 4 the basic windrose directions. This way we can copy/paste between stories and have the same link numbers. Unique commands, story specific, start with 1000.
+]
+
+Table of Glulx Hyperlink Replacement Commands (continued)
+	link ID  	replacement
+	1  	"GO North"
+	2  	"GO East"
+	3	"GO South"
+	4	"GO West"
+	20 	"GO Up"
+	21	"GO Down"
+	100	"restart"
+	200	"look"
+	1000	"magicalcommand"
 
 
 [
@@ -173,7 +200,7 @@ Carry out toggling the story-hints window:
 
 Rule for refreshing the story-hints window:
 	[ToDo: set a counter and increment so we have some idea of how frequently this redraws.]
-	say "Stuck in the story? Do not dial 911 in the USA!".
+	say "Stuck in the story? Do not dial 911 in the USA! [link 4]Try west[end link]".
 
 
 [
@@ -344,6 +371,9 @@ Chapter - Startup Story
 
 Complex Layout is a truth state variable. Complex Layout is true.
 LayoutA is a truth state variable. LayoutA is true.
+
+When play begins:
+        now the right hand status line is "[link 100]reset story[end link]"
 
 Last when play begins (this is the check screen size rule):
 	if Complex Layout is false:
