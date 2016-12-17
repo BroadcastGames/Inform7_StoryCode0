@@ -10,13 +10,14 @@ NOTE: Graphic images may have their own license, check them independently.
 [
 ToDo Bugs:
    1. Gargoyle on Ubuntu 16.10 and Windows 10 both do not show the status line on bottom. Windows Git and Windows Glulxe both show it correctly, as does the Inform 7 IDE 6M62 on Ubuntu.
+   2. Inform 7 IDE 6M62 on Ubuntu 16.10 when you "reset story" it seems to have a Glk bug and the room titles have a brown/tan background. File this as Inform 7 bug?
 
 ToDo features:
    1. "Dark Cities" has much nicer black borders on the story-hints window. How is this done?
    2. "Dark Cities" centers the status, looks nicer.
 ]
 
-The story genre is "Other". The release number is 21.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 22.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -249,8 +250,10 @@ To say highlighted letters:
 To say redfox letters:
 	say special-style-1;
 
+The background color of the main window is "#F5FFE3". [light yellow green]
 The background color of the side window is "#FFC786". [Peachy]
 The background color of the info1-border window is "#607080". [Grey/Dark Blue]
+The background color of the info1-border-nongraphic window is "#607080". [Grey/Dark Blue]
 The background color of the graphics window is "#FF00FF". [magenta]
 The background color of the chargraphics window is "#FF00FF". [magenta]
 The background color of the story-hints window is "#FFDEA0". [light brown/tan]
