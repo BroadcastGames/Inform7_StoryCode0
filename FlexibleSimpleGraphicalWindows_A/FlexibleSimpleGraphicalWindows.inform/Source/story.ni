@@ -17,7 +17,7 @@ ToDo features:
    2. "Dark Cities" centers the status, looks nicer.
 ]
 
-The story genre is "Other". The release number is 22.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 24.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -75,11 +75,18 @@ Table of Glulx Hyperlink Replacement Commands (continued)
 	2  	"GO East"
 	3	"GO South"
 	4	"GO West"
+	5	"GO NorthEast"
+	6	"GO NorthWest"
+	7	"GO SouthEast"
+	8	"GO SouthWest"
 	20 	"GO Up"
 	21	"GO Down"
+	22	"GO Inside"
+	23	"GO Outside"
 	100	"restart"
 	200	"look"
 	1000	"magicalcommand"
+	1001	"xyzzy"
 
 
 [
@@ -209,7 +216,7 @@ Carry out toggling the story-hints window:
 
 Rule for refreshing the story-hints window:
 	[ToDo: set a counter and increment so we have some idea of how frequently this redraws.]
-	say "Stuck in the story? Do not dial 911 in the USA! [link 4]Try west[end link]".
+	say "Stuck in the story? Do not dial 911 in the USA! [link 4]Try west[end link] or [link 1001]punt the ball[end link]".
 
 
 [
@@ -257,6 +264,15 @@ The background color of the info1-border-nongraphic window is "#607080". [Grey/D
 The background color of the graphics window is "#FF00FF". [magenta]
 The background color of the chargraphics window is "#FF00FF". [magenta]
 The background color of the story-hints window is "#FFDEA0". [light brown/tan]
+
+
+[
+ Setting status window this way doesn't work very well in GarGlk Interpreter .
+ Discussion from 2011 on technicals. http://www.intfiction.org/forum/viewtopic.php?f=7&t=2588 
+Include Glulx Status Window Control by Erik Temple.
+]
+[ The background color of the status window is "#E5FFB6". ] [green? tint]
+[ The background color of the status window is "#5D890B".]  [dark green? tint for reverse text]
 
 
 [
@@ -406,7 +422,7 @@ This is the open up Complex Layout rule:
 		open the graphics window;
 		now the side window is spawned by the graphics window;
 	open side window;
-	[ This refresh is essential or the graphic will be centered relative to the height of the full window (screen) and not the new height after opeining the side window. ]
+	[ This refresh is essential or the graphic will be centered relative to the height of the full window (screen) and not the new height after opening the side window. ]
 	if Fake Graphics is true:
 		open info1-border-nongraphic window;
 	otherwise:
@@ -430,13 +446,66 @@ Test allwindows with "storyhints / side window".
 
 [
 ======================================================================================
+==  Magical Casting commands
+======================================================================================
+]
+
+Understand "xyzzy" or "say xyzzy" or "cast xyzzy" as casting xyzzy.
+Casting xyzzy is an action applying to nothing.
+
+Check casting xyzzy:
+    if the player does not wear the amulet of elocution, say "You are unable to articulate the second 'z' separately from the first, and the spell fails in a disdainful puff. Must be Parisian magic." instead; 
+    if the player has the plate, say "The plate of cheeses twitches uncomfortably, aware that it should be doing something, but not sure what." instead.
+
+Carry out casting xyzzy:
+    move the plate to the player.
+
+Report casting xyzzy:
+    say "Under the influence of the Amulet of Elocution, you pronounce this as Xhi-zee. And lo, from nowhere, a [plate] appears!"
+
+The amulet of elocution is a wearable thing. It is carried by the player. The description is "A heavy gold ring on a chain. If heated in an ordinary house fire, it glows with the words, 'Moses Supposes His Toeses Are Roses.'"
+
+The plate is a portable supporter. On the plate is a very ripe ooze. Instead of smelling the ooze, say "It smells like socks. This is going to be wonderful." The ooze is edible. The printed name of the plate is "plate[if the plate supports the ooze] of cheese[end if]". The description of the ooze is "Definitely genuinely cheese." Understand "cheese" as the ooze.
+
+Instead of eating the ooze: now the ooze is nowhere; say "You are transported..."; move the player to Paradise.
+
+Test spellmagic with "go to cheez factory / x squares / x amulet / x cheese / xyzzy / wear amulet / xyzzy / x ooze / smell ooze / eat ooze".
+
+[
+== Technical Misc
+]
+
+[
+Thanks to Pogoman GO! for code sample
+https://github.com/sussman/pogoman-go/commit/ddcb5ccfa232f25da58f06f28da2300bfd56dd4f
+]
+To decide whether unicodage is enabled:
+	(-  glk_gestalt(gestalt_Unicode, 0) -)
+
+
+[
+======================================================================================
 ==  Main Story Logic of rooms
 ======================================================================================
 ]
 
-Place is a room. "Type 'side window' to toggle, another toggle is 'storyhints'. A border window should also appear, three windows in total. This line continues to be lengthy so that you can see how word wrapping is impacted by the toggle of the side window. The quick brown fox jumps over the lazy dog, or did he? Try going west to see letter coloring. East is a Field with graphic images.[line break]Commands 'apng' and 'agif' should work anywhere. Command 'test allwindows' should open 5-window layout.".
+Place is a room. "Type 'side window' to toggle, another toggle is 'storyhints'. A border window should also appear, three windows in total. This line continues to be lengthy so that you can see how word wrapping is impacted by the toggle of the side window. The quick brown fox jumps over the lazy dog, or did he? Try going west to see letter coloring. East is a Field with graphic images. South has escape tests.[line break]Commands 'apng' and 'agif' should work anywhere. Command 'test allwindows' should open 5-window layout.".
 
 Wild West is a room, west of Place. "You made it to the [red reverse]Wild Occidental[default letters], type [highlighted letters]'east'[default letters] to return to Place. [redfox letters]Je ne puis pas jouer avec toi, dit le renard."
 
+The Wilder West is west of the Wild West.  "[italic type]This is Italic type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E. [bold type]This is bold type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E. [fixed letter spacing]This is fixed letter spacing type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E.  [paragraph break]UTF-8 Unicode with more than two bytes? 'For example the code point U+9A69 (驩) is encoded as E9 A9 A9'. The gothic letter hwair U+10348 is supposed to be 4 bytes, with a decimal value of 66,376? I pasted one those hwair characters here in the IDE and the Inform 7 6M62 compiler errored with 'Inform can only handle Unicode characters in the 16-bit range, from 0 to 65535.' Another west?"
+
+The West囍ern End is west of Wilder West.  "Je ne suis pour toi qu'un renard semblable à cent mille renards. Mais, si tu m'apprivoises, nous aurons besoin l'un de l'autre. Tu seras pour moi unique au monde. ... Mais si tu m'apprivoises, ma vie sera comme ensoleillée.[paragraph break]Conditional test, do you see Unicode frowns and a happy Arabic greeting? [if unicodage is enabled][unicode 9785][unicode 9785][unicode 9785]. [unicode 9785][unicode 9785][unicode 9785] - enough of that, positive: أهلاً وسهلاً --- IMPORTANT NOTE: The room name should be 'West囍ern End' with Han 'double happiness' U+56cd symbol between 'West' and 'ern'. [otherwise]No, your Interpreter told me no Unicode. Logic test of Unicode said NOT HERE.[end if] More appears to be to the west.".
+
+South Escape is a room, south of Place. "Here you go. One / Two // Three /// Four //// Five //// Six ////// and the other way too. One \ Two \\ Three \\\ Four \\\\ Five \\\\\ Size \\\\\\ there. Another room South does style changes over and over."
+
+[ RemGlk expands every change, so test a really lengthy string. ]
+South Overflow is a room, south of South Escape. "Here you go. [fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E. More: [fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E. Even More: [fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E. Inform 7 build 6M62 limit. 012345678901234567890123456789."
+
 Field is a room, east of Place. "This is a large open field. West is the central Place room. Command 'look' will show the field. Command 'picture' will show a second figure. Command 'side window' still works here - and useful to see how the figure images are cropped when there is not enough display space.".
 
+Teleporting is an action applying to one visible thing. Understand "go to [any room]" as teleporting. Carry out teleporting: move the player to the noun.
+
+The Cheez Factory is a room. "All around you are squares of pressed orange polymer, or possibly cheez. Your only hope is the magic word your uncle taught you: XYZZY." The squares of pressed orange polymer are scenery in the Factory. The description is "You see nothing special about the squares of pressed orange polymer. Nothing special at all." Understand "square" or "cheez" as the squares.
+
+Paradise is a room. The description is "Well, it might just be one of the posh upper rings of purgatory, if you're entirely honest with yourself."
