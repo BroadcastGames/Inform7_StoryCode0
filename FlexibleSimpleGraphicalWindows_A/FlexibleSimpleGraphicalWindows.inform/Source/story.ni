@@ -15,6 +15,7 @@ ToDo Bugs:
 ToDo features:
    1. "Dark Cities" has much nicer black borders on the story-hints window. How is this done?
    2. "Dark Cities" centers the status, looks nicer.
+   3. Tech demo: "There is a flag (winmethod_NoBorder) which the game can use to ask for no border between the windows. (Pass as part of the method argument of glk_window_open()." from here: http://www.intfiction.org/forum/viewtopic.php?f=7&t=15797
 ]
 
 The story genre is "Other". The release number is 24.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
@@ -490,6 +491,14 @@ To decide whether unicodage is enabled:
 ]
 
 Place is a room. "Type 'side window' to toggle, another toggle is 'storyhints'. A border window should also appear, three windows in total. This line continues to be lengthy so that you can see how word wrapping is impacted by the toggle of the side window. The quick brown fox jumps over the lazy dog, or did he? Try going west to see letter coloring. East is a Field with graphic images. South has escape tests.[line break]Commands 'apng' and 'agif' should work anywhere. Command 'test allwindows' should open 5-window layout.".
+
+Reverse Attempt is a room, southeast of Place. "Reverse text attempt. Not ready.".
+
+
+Include (-
+	Global myCheck = false;
+-)
+
 
 Wild West is a room, west of Place. "You made it to the [red reverse]Wild Occidental[default letters], type [highlighted letters]'east'[default letters] to return to Place. [redfox letters]Je ne puis pas jouer avec toi, dit le renard."
 
