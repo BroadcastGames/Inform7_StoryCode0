@@ -18,7 +18,7 @@ ToDo features:
    3. Tech demo: "There is a flag (winmethod_NoBorder) which the game can use to ask for no border between the windows. (Pass as part of the method argument of glk_window_open()." from here: http://www.intfiction.org/forum/viewtopic.php?f=7&t=15797
 ]
 
-The story genre is "Other". The release number is 24.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 25.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -217,7 +217,7 @@ Carry out toggling the story-hints window:
 
 Rule for refreshing the story-hints window:
 	[ToDo: set a counter and increment so we have some idea of how frequently this redraws.]
-	say "Stuck in the story? Do not dial 911 in the USA! [link 4]Try west[end link] or [link 1001]punt the ball[end link]".
+	say "Stuck in the story? [redfox letters]Do not dial 911[default letters]  in the [highlighted letters]USA![default letters] [link 4]Try west[end link] or [link 1001]punt the ball[end link]".
 
 
 [
@@ -511,10 +511,42 @@ South Escape is a room, south of Place. "Here you go. One / Two // Three /// Fou
 [ RemGlk expands every change, so test a really lengthy string. ]
 South Overflow is a room, south of South Escape. "Here you go. [fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E. More: [fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E. Even More: [fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E. Inform 7 build 6M62 limit. 012345678901234567890123456789."
 
-Field is a room, east of Place. "This is a large open field. West is the central Place room. Command 'look' will show the field. Command 'picture' will show a second figure. Command 'side window' still works here - and useful to see how the figure images are cropped when there is not enough display space.".
+Field is a room, east of Place. "This is a large open field. West is the central Place room. Command 'look' will show the field. Command 'picture' will show a second figure. Command 'side window' still works here - and useful to see how the figure images are cropped when there is not enough display space. Other commands to try: 'Go to Paradise', 'Go to Green Room', 'Go to Back Room'".
 
 Teleporting is an action applying to one visible thing. Understand "go to [any room]" as teleporting. Carry out teleporting: move the player to the noun.
 
 The Cheez Factory is a room. "All around you are squares of pressed orange polymer, or possibly cheez. Your only hope is the magic word your uncle taught you: XYZZY." The squares of pressed orange polymer are scenery in the Factory. The description is "You see nothing special about the squares of pressed orange polymer. Nothing special at all." Understand "square" or "cheez" as the squares.
 
 Paradise is a room. The description is "Well, it might just be one of the posh upper rings of purgatory, if you're entirely honest with yourself."
+
+[
+Incomplete expierment with inline Glk calls to try and understand what's missing in various Runtime Interpreters (apps).
+These won't work as current design of Glk stylehint system is to only pick up changes win the window is opened, not in the middle of text generation
+for an already established window.
+]
+To say xxx0 -- beginning say_xxx0 -- running on: (-
+   print "I said, violence is ";
+    if  (1 == 2) {
+	glk_stylehint_set(wintype_TextBuffer, style_User1, stylehint_TextColor, $FF0000);
+	glk_stylehint_set(wintype_TextBuffer, style_User1, stylehint_BackColor, $000000);
+    }
+   style bold;
+   print "not";
+   style roman;
+   print " the answer to this one.";
+-).
+To say /xxx0 -- ending say_xxx0 -- running on: (- style roman; -).
+
+To say xxa0 -- beginning say_xxa0 -- running on: (-
+    if  (1 == 2) {
+	glk_stylehint_set(wintype_TextBuffer, style_User1, stylehint_TextColor, $00FF00);
+	glk_stylehint_set(wintype_TextBuffer, style_User1, stylehint_BackColor, $000030);
+	glk_stylehint_set(wintype_TextBuffer, style_User1, stylehint_Size, 4);
+    }
+  print "ALTERED ";
+-).
+To say /xxa0 -- ending say_xxa0 -- running on: (-  -).
+
+Green Room is a room. "Does [red reverse]red reverse[default letters] show?: [xxx0][/xxx0]. Is [red reverse]red reverse[default letters] the same?".
+
+Back Room is a room. "Does [red reverse]red reverse[default letters] show?: [xxa0]this is inside xxxa0[/xxa0]. Is [red reverse]red reverse[default letters] the same?".
