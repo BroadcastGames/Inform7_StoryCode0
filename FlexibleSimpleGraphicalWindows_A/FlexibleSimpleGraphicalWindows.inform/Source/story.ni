@@ -18,7 +18,7 @@ ToDo features:
    3. Tech demo: "There is a flag (winmethod_NoBorder) which the game can use to ask for no border between the windows. (Pass as part of the method argument of glk_window_open()." from here: http://www.intfiction.org/forum/viewtopic.php?f=7&t=15797
 ]
 
-The story genre is "Other". The release number is 25.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 26.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -217,7 +217,7 @@ Carry out toggling the story-hints window:
 
 Rule for refreshing the story-hints window:
 	[ToDo: set a counter and increment so we have some idea of how frequently this redraws.]
-	say "Stuck in the story? [redfox letters]Do not dial 911[default letters]  in the [highlighted letters]USA![default letters] [link 4]Try west[end link] or [link 1001]punt the ball[end link]".
+	say "Stuck in the story? [redfox letters]Do not dial 911[default letters]  in the [highlighted letters]USA![default letters] Instead [link 4]Try west[end link] or [link 1001]punt the ball[end link]".
 
 
 [
@@ -242,21 +242,23 @@ Reference: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6317
 ]
 
 Table of User Styles (continued)
-style name	background color	color
-special-style-1	"#FF0000"	"#00FFFF"
-special-style-2	"#FFFF00"	"#000000"
+window	style name	background color	color
+main	special-style-1	"#FF0000"	"#00FFFF"
+main	special-style-2	"#FFFF00"	"#000000"
+story-hints	special-style-1	"#FF0030"	"#00FFFF"
+story-hints	special-style-2	"#FFFF00"	"#002000"
 
 To say red reverse:
-	say special-style-1;
-	
-To say default letters:
-	say roman type;
-	
-To say highlighted letters:
-	say special-style-2;
-
+	say special-style-1.
 To say redfox letters:
-	say special-style-1;
+	say special-style-1.
+
+To say highlighted letters:
+	say special-style-2.
+
+To say default letters:
+	say roman type.
+
 
 The background color of the main window is "#F5FFE3". [light yellow green]
 The background color of the side window is "#FFC786". [Peachy]
