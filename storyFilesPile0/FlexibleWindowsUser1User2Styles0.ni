@@ -1,6 +1,6 @@
 "FlexibleWindowsUser1User2Styles0" by "Community"
 
-The story genre is "Other". The release number is 6.
+The story genre is "Other". The release number is 7.
 The story headline is "Glulx technical demonstration".
 
 Include version 15/161003 of Flexible Windows by Jon Ingold.
@@ -25,6 +25,12 @@ righthanded	special-style-1	"#03FF03"	"#FF03FF"
 righthanded	special-style-2	"#FFFF05"	"#010203"
 RightTwo	special-style-1	"#03FE03"	"#FF03FE"
 RightTwo	special-style-2	"#FDFF05"	"#050203"
+RightThree	special-style-1	"#20FE03"	"#D003FE"
+RightThree	special-style-2	"#D0FF05"	"#200203"
+RightThree	normal-style	"#010000"	"#FFA500"   [orange]
+RightThree	header-style	"#020000"	"#00FFFF"
+RightThree	bold-style 	"#030000"	"#10FFFF"
+RightThree	italic-style		"#040000"	"#20FFFF"
 
 To say red reverse:
 	say special-style-1;
@@ -112,6 +118,34 @@ Rule for refreshing the RightTwo window:
 The background color of the RightTwo window is "#FAE1FD". [bright]
 
 
-Place is a room. "Type 'storyhints', 'righttwo', or 'righthand' to toggle secondary windows. West is another room with user1 and user2 style.".
+
+[**** Window: RightThree ]
+The RightThree window is a text buffer g-window spawned by the main window.
+The position of the RightThree window is g-placeright.
+The scale method of the RightThree window is g-fixed-size.
+The measurement of the RightThree window is 32.
+The rock number of the RightThree window is 325. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
+
+Toggling the RightThree window is an action out of world.
+Understand "RightThree" as toggling the RightThree window.
+
+Carry out toggling the RightThree window:
+	if the RightThree window is g-present:
+		close the RightThree window;
+	otherwise:
+		open the RightThree window.
+
+Rule for refreshing the RightThree window:
+	say "RightThree Not hints, but nonsense content: Stuck in the story? [red reverse]Do not dial 911[default letters] in the [highlighted]USA![default letters] - Try west.";
+	try taking inventory;
+	say "There went the [italic type]inventory![default letters]. Now for some [bold type]Bold Moves[default letters] here.".
+
+The background color of the RightThree window is "#D1FFC7". [bright greenish]
+
+
+
+Chapter - Rooms
+
+Place is a room. "Type 'storyhints', 'righttwo', 'rightthree', or 'righthand' to toggle secondary windows. West is another room with user1 and user2 style.".
 
 Wild West is a room, west of Place. "You made it to the [red reverse]Wild Occidental[default letters], type [highlighted]'east'[default letters] to return to Place. [red reverse]Je ne puis pas jouer avec toi, dit le renard."
