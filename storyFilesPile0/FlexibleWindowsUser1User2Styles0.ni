@@ -1,6 +1,6 @@
 "FlexibleWindowsUser1User2Styles0" by "Community"
 
-The story genre is "Other". The release number is 5.
+The story genre is "Other". The release number is 6.
 The story headline is "Glulx technical demonstration".
 
 Include version 15/161003 of Flexible Windows by Jon Ingold.
@@ -36,7 +36,9 @@ To say default letters:
 	say roman type;
 
 
+[For interpreters, see where these unique values show up in the Glk calls.]
 The background color of the main window is "#FEFBFF".
+The background color of the status window is "#FEFBDF".
 
 
 [**** Window: story-hints ]
