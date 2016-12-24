@@ -1,6 +1,6 @@
 "FlexibleWindowsUser1User2Styles0" by "Community"
 
-The story genre is "Other". The release number is 2.  
+The story genre is "Other". The release number is 5.
 The story headline is "Glulx technical demonstration".
 
 Include version 15/161003 of Flexible Windows by Jon Ingold.
@@ -11,16 +11,20 @@ Include version 15/161003 of Flexible Windows by Jon Ingold.
 Experiment with commenting out various window targets and how the story-hints comes out.]
 Table of User Styles (continued)
 window	style name	background color	color
-all-windows	special-style-1	"#FF0000"	"#00FFFF"
-all-windows	special-style-2	"#FFFF00"	"#000000"
-all-grid-windows	special-style-1	"#FF0000"	"#00FFFF"
-all-grid-windows	special-style-2	"#FFFF00"	"#000000"
-all-buffer-windows	special-style-1	"#FF0000"	"#00FFFF"
-all-buffer-windows	special-style-2	"#FFFF00"	"#000000"
-story-hints	special-style-1	"#FF0000"	"#00FFFF"
-story-hints	special-style-2	"#FFFF00"	"#000000"
+main	special-style-1	"#FF0200"	"#04FFFF"
+main	special-style-2	"#FFFF01"	"#000001"
+[all-windows	special-style-1	"#FF0200"	"#04FFFF"
+all-windows	special-style-2	"#FFFF01"	"#000001"
+all-grid-windows	special-style-1	"#FF0300"	"#03FFFF"
+all-grid-windows	special-style-2	"#FFFF02"	"#020202"
+all-buffer-windows	special-style-1	"#FF0200"	"#02FFFF"
+all-buffer-windows	special-style-2	"#FFFF03"	"#010001"]
+story-hints	special-style-1	"#FF0100"	"#01FFFF"
+story-hints	special-style-2	"#FFFF04"	"#010102"
 righthanded	special-style-1	"#03FF03"	"#FF03FF"
-righthanded	special-style-2	"#FFFF03"	"#040404"
+righthanded	special-style-2	"#FFFF05"	"#010203"
+RightTwo	special-style-1	"#03FE03"	"#FF03FE"
+RightTwo	special-style-2	"#FDFF05"	"#050203"
 
 To say red reverse:
 	say special-style-1;
@@ -32,12 +36,15 @@ To say default letters:
 	say roman type;
 
 
+The background color of the main window is "#FEFBFF".
+
+
 [**** Window: story-hints ]
 The story-hints window is a text buffer g-window spawned by the main window.
 The position of the story-hints window is g-placebelow.
 [ This is the way the status window is defined in the Flexible Windows extension. ]
 The scale method of the story-hints window is g-fixed-size.
-The measurement of the story-hints window is 1.
+The measurement of the story-hints window is 3.
 The rock number of the story-hints window is 355. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
 
 Toggling the story-hints window is an action out of world.
@@ -50,7 +57,7 @@ Carry out toggling the story-hints window:
 		open the story-hints window.
 
 Rule for refreshing the story-hints window:
-	say "Stuck in the story? [red reverse]Do not dial 911[default letters] in the [highlighted]USA![default letters] - Try west.".
+	say "Stuck in the story? [red reverse]Do not dial 911[default letters] in the [highlighted]USA![default letters] Try west.".
 
 The background color of the story-hints window is "#FFDEA0". [light brown/tan]
 
@@ -78,6 +85,31 @@ Rule for refreshing the righthanded window:
 The background color of the righthanded window is "#FAE1FF". [bright]
 
 
-Place is a room. "Type 'storyhints' or 'righthand' to toggle secondary windows. West is another room with user1 and user2 style.".
+
+[**** Window: RightTwo ]
+The RightTwo window is a text buffer g-window spawned by the main window.
+The position of the RightTwo window is g-placeright.
+The scale method of the RightTwo window is g-fixed-size.
+The measurement of the RightTwo window is 36.
+The rock number of the RightTwo window is 315. [ "If we set numbers ending in 5 for our manual rocks, we will never conflict with the automated numbering."]
+
+Toggling the RightTwo window is an action out of world.
+Understand "RightTwo" as toggling the RightTwo window.
+
+Carry out toggling the RightTwo window:
+	if the RightTwo window is g-present:
+		close the RightTwo window;
+	otherwise:
+		open the RightTwo window.
+
+Rule for refreshing the RightTwo window:
+	say "RightTwo Not hints, but nonsense content: Stuck in the story? [red reverse]Do not dial 911[default letters] in the [highlighted]USA![default letters] - Try west.";
+	try taking inventory;
+	say "There went the [italic type]inventory![default letters]. Now for some [bold type]Bold Moves[default letters] here.".
+
+The background color of the RightTwo window is "#FAE1FD". [bright]
+
+
+Place is a room. "Type 'storyhints', 'righttwo', or 'righthand' to toggle secondary windows. West is another room with user1 and user2 style.".
 
 Wild West is a room, west of Place. "You made it to the [red reverse]Wild Occidental[default letters], type [highlighted]'east'[default letters] to return to Place. [red reverse]Je ne puis pas jouer avec toi, dit le renard."
