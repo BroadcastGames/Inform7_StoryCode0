@@ -1,6 +1,6 @@
 "Inform7ZMachineStyles0" by "Community"
 
-The story genre is "Other". The release number is 3.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 4.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Z-machine Glk technical demonstration".
 
 [ This is intended to be Inform 7 6m62 compiled story that can reproduce some of the text style changes of older Z-machine games.
@@ -14,11 +14,11 @@ fizmo-nucrsesw segmentation fault when doing the banner in room to East. fizmo-s
 
 Include Basic Screen Effects by Emily Short.
 
-Place is a room. "Here is [green letters]GREEN[default letters] or [red letters]RED[default letters] text. South is Test Chamber. West is more text styles. North has escape testing.".
+Place is a room. "Here is [green letters]GREEN[default letters] or [red letters]RED[default letters] text. South is Test Chamber. West is more text styles. North has escape testing. East has a banner quote that appears only once per game.".
 
 Wild West is a room, west of Place. "You made it to the [red letters]Wild Occidental[default letters], type [red letters]'east'[default letters] to return to Place. [blue letters]Je ne puis pas jouer avec toi, dit le renard.[default letters][roman type]Reverse letters working?"
 
-The Wilder West is west of the Wild West.  "[italic type]This is Italic type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E. [bold type]This is bold type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E. [fixed letter spacing]This is fixed letter spacing type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E.  [paragraph break]UTF-8 Unicode with more than two bytes? 'For example the code point U+9A69 (驩) is encoded as E9 A9 A9'. The gothic letter hwair U+10348 is supposed to be 4 bytes, with a decimal value of 66,376? I pasted one those hwair characters here in the IDE and the Inform 7 6M62 compiler errored with 'Inform can only handle Unicode characters in the 16-bit range, from 0 to 65535.' Another west?"
+The Wilder West is west of the Wild West.  "[italic type]This is Italic type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E. [bold type]This is bold type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E. [fixed letter spacing]This is fixed letter spacing type. This is Unicode content. A नमस्ते A, B أهلاً وسهلاً B, C 你好 C, D 봉주르 D, E どうもありがとうミスターロボット E.  [paragraph break]UTF-8 Unicode with more than two bytes? 'For example the code point U+9A69 (驩) is encoded as E9 A9 A9'. The gothic letter hwair U+10348 is supposed to be 4 bytes, with a decimal value of 66,376? I pasted one those hwair characters here in the IDE and the Inform 7 6M62 compiler errored with 'Inform can only handle Unicode characters in the 16-bit range, from 0 to 65535.' East to go back where you came from."
 
 North Escape is a room, north of Place. "Here you go. One / Two // Three /// Four //// Five //// Six ////// and the other way too. One \ Two \\ Three \\\ Four \\\\ Five \\\\\ Size \\\\\\ there. Another room North does style changes over and over."
 
@@ -32,8 +32,8 @@ Eastward Room is a room, east of Place. "Welcome to Eastward Room, go West to re
 
 After going to the Eastward Room:
 	display the boxed quotation "\ \\\\\\\ Tempus fugit. /////// /";
-	say "quote should have appeared.";
-	say  "is this next word [i]underlined?[/i]".
+	say "quote should have appeared on first visit to this room.";
+	say  "is this next word [i]underlined?[/i] as it's kind of confusing the style names in the source code. West takes you back to the Place where you came from.".
 
 
 [ 
