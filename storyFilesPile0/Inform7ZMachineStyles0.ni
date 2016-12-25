@@ -1,6 +1,6 @@
 "Inform7ZMachineStyles0" by "Community"
 
-The story genre is "Other". The release number is 5.  [ genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 6.  [ genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Z-machine Glk technical demonstration".
 
 [ This is intended to be Inform 7 6m62 compiled story that can reproduce some of the text style changes of older Z-machine games.
@@ -28,12 +28,16 @@ North Overflow is a room, north of North Escape. "Here you go. [fixed letter spa
 To say i -- beginning say_i -- running on: (- style underline; -).
 To say /i -- ending say_i -- running on: (- style roman; -).
 
-Eastward Room is a room, east of Place. "Welcome to Eastward Room, go West to return to the central Place."
+Eastward Room is a room, east of Place. "Welcome to Eastward Room, go West to return to the central Place. Another East is available with colors."
 
 After going to the Eastward Room:
 	display the boxed quotation "\ \\\\\\\ Tempus fugit. /////// /";
 	say "quote should have appeared on first visit to this room.";
-	say  "is this next word [i]underlined?[/i] as it's kind of confusing the style names in the source code. West takes you back to the Place where you came from.".
+	say  "is this next word [i]underlined?[/i] as it's kind of confusing the style names in the source code. West takes you back to the Place where you came from, Another East is available with colors.".
+
+Eastern End is a room, east of Eastward Room. "West to go back where you came from. [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [bold type]bold type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [italic type]italic type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default."
+
+Eastern Endzone  is a room, east of Eastern End. "Here is the end of the line going East. Go back west!"
 
 
 [ 
