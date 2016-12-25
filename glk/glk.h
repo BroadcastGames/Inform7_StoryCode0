@@ -1,7 +1,7 @@
 #ifndef GLK_H
 #define GLK_H
 
-/* glk.h: Header file for Glk API, version 0.7.4.
+/* PROPOSED glk.h: Header file for Glk API, version 0.8.0.
     Designed by Andrew Plotkin <erkyrath@eblong.com>
     http://eblong.com/zarf/glk/
 
@@ -127,7 +127,28 @@ typedef struct event_struct {
 #define style_Input (8)
 #define style_User1 (9)
 #define style_User2 (10)
-#define style_NUMSTYLES (11)
+/* reference: fizmo/tools/types.h for ordering
+ * The idea is not going to be perfect as this gives a structure that
+ *    looks like 'foreground color only'. Yet, the underlying style
+ *    system is flexible that 16 slots can relieve a lot of the need.
+*/
+#define style_LegacyColour1 (11)   /* Current */
+#define style_LegacyColour2 (12)   /* Default */
+#define style_LegacyColour3 (13)   /* Black */
+#define style_LegacyColour4 (14)   /* Red */
+#define style_LegacyColour5 (15)   /* Green */
+#define style_LegacyColour6 (16)   /* Yellow */
+#define style_LegacyColour7 (17)   /* Blue */
+#define style_LegacyColour8 (18)   /* Magenta */
+#define style_LegacyColour9 (19)   /* Cyan */
+#define style_LegacyColour10 (20)  /* White */
+#define style_LegacyColour11 (21)  /* MSDOS_DARKISH_GREY or AMIGA_LIGHT_GREY */
+#define style_LegacyColour12 (22)  /* MediumGrey */
+#define style_LegacyColour13 (23)  /* DarkGrey */
+#define style_LegacyColour14 (24)  /* User3 */
+#define style_LegacyColour15 (25)  /* User4 */
+#define style_LegacyColour16 (26)  /* User5 */
+#define style_NUMSTYLES (27)
 
 typedef struct stream_result_struct {
     glui32 readcount;
@@ -140,6 +161,7 @@ typedef struct stream_result_struct {
 #define wintype_TextBuffer (3)
 #define wintype_TextGrid (4)
 #define wintype_Graphics (5)
+#define wintype_NUMTYPES (6)
 
 #define winmethod_Left  (0x00)
 #define winmethod_Right (0x01)
