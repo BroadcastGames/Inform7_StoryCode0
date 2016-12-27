@@ -1,6 +1,6 @@
 "FlexibleWindowsUser1User2Styles0" by "Community"
 
-The story genre is "Other". The release number is 10.
+The story genre is "Other". The release number is 12.
 The story headline is "Glulx technical demonstration".
 
 Include version 15/161003 of Flexible Windows by Jon Ingold.
@@ -23,7 +23,7 @@ story-hints	special-style-1	"#FF0100"	"#01FFFF"
 story-hints	special-style-2	"#FFFF04"	"#010102"
 righthanded	special-style-1	"#03FF03"	"#FF03FF"
 righthanded	special-style-2	"#FFFF05"	"#010203"
-RightTwo	special-style-1	"#03FE03"	"#FF03FE"
+RightTwo	special-style-1	"#A5CEFD"	"#FF03FE"
 RightTwo	special-style-2	"#FDFF05"	"#050203"
 RightThree	special-style-1	"#20FE03"	"#D003FE"
 RightThree	special-style-2	"#D0FF05"	"#200203"
@@ -48,6 +48,7 @@ The background color of the main window is "#FEFBFF".
 The background color of the status window is "#FEFBDF".
 
 
+
 [**** Window: story-hints ]
 The story-hints window is a text buffer g-window spawned by the main window.
 The position of the story-hints window is g-placebelow.
@@ -69,6 +70,8 @@ Rule for refreshing the story-hints window:
 	say "Stuck in the story? [red reverse]Do not dial 911[default letters] in the [highlighted]USA![default letters] Try west.".
 
 The background color of the story-hints window is "#FFDEA0". [light brown/tan]
+
+
 
 [**** Window: righthanded ]
 The righthanded window is a text buffer g-window spawned by the main window.
@@ -92,7 +95,7 @@ Rule for refreshing the righthanded window:
 	try taking inventory;
 	say "There went the inventory!".
 
-The background color of the righthanded window is "#FAE1FF". [bright]
+The background color of the righthanded window is "#FED0FF". [bright purple, might white than other.]
 
 
 
@@ -113,11 +116,11 @@ Carry out toggling the RightTwo window:
 		open the RightTwo window.
 
 Rule for refreshing the RightTwo window:
-	say "RightTwo Not hints, but nonsense content: Stuck in the story? [red reverse]Do not dial 911[default letters] in the [highlighted]USA![default letters] - Try west.";
+	say "RightTwo Not hints, but nonsense content: Stuck in the story? [red reverse]Do not dial 911[default letters] in the [highlighted]North America![default letters] - Try going west.";
 	try taking inventory;
 	say "There went the [italic type]inventory![default letters]. Now for some [bold type]Bold Moves[default letters] here.".
 
-The background color of the RightTwo window is "#FAE1FD". [bright purpleish]
+The background color of the RightTwo window is "#FAE1F8". [bright purpleish]
 
 
 
@@ -140,9 +143,10 @@ Carry out toggling the RightThree window:
 Rule for refreshing the RightThree window:
 	say "RightThree Not hints, but nonsense content: Stuck in the story? [red reverse]Do not dial 911[default letters] in the [highlighted]USA![default letters] - Try west.";
 	try taking inventory;
-	say "There went the [italic type]inventory![default letters]. Now for some [bold type]Bold Moves[default letters] here.".
+	say "There went the [italic type]inventory![default letters]. Now for some [bold type]Bold Moves[default letters] here. Background color of this window is supposed to be #D1FFC7 but Glulxe on Windows 10 renders it as black.".
 
 The background color of the RightThree window is "#D1FFC7". [bright greenish]
+
 
 
 [**** Window: RightFour]
@@ -162,7 +166,7 @@ Carry out toggling the RightFour window:
 		open the RightFour window.
 
 Rule for refreshing the RightFour window:
-	say "RightFour window is here, should have a blue background color. [red reverse]Do not dial 911[default letters] in the [highlighted]USA![default letters] - Try west.";
+	say "RightFour window is here, should have a blue background color. [red reverse]Do not dial 911[default letters] in the [highlighted]USA![default letters] - the words USA1 were in Userstyle2 - but it's practically undefined in this window. What [highlighted]color comes out?[default letters] here?";
 	try taking inventory;
 	say "There went the [italic type]inventory![default letters]. Now for some [bold type]Bold Moves[default letters] here. This is extra text to see it really in action man, going and going.".
 
@@ -174,4 +178,4 @@ Chapter - Rooms
 
 Place is a room. "Type 'storyhints', 'righttwo', 'rightthree', 'rightfour', or 'righthand' to toggle secondary windows. West is another room with user1 and user2 style.".
 
-Wild West is a room, west of Place. "You made it to the [red reverse]Wild Occidental[default letters], type [highlighted]'east'[default letters] to return to Place. [red reverse]Je ne puis pas jouer avec toi, dit le renard."
+Wild West is a room, west of Place. "You made it to the [red reverse]Wild Occidental[default letters], type [highlighted]'east'[default letters] to return to Place. [red reverse]Je ne puis pas jouer avec toi, dit le renard. [bold type]Bold Moves[default letters] [italic type]and some [default letters]regular moves."
