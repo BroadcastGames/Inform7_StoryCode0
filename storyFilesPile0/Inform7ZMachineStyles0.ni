@@ -1,6 +1,6 @@
 "Inform7ZMachineStyles0" by "Community"
 
-The story genre is "Other". The release number is 6.  [ genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 7.  [ genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Z-machine Glk technical demonstration".
 
 [ This is intended to be Inform 7 6m62 compiled story that can reproduce some of the text style changes of older Z-machine games.
@@ -14,7 +14,7 @@ fizmo-nucrsesw segmentation fault when doing the banner in room to East. fizmo-s
 
 Include Basic Screen Effects by Emily Short.
 
-Place is a room. "Here is [green letters]GREEN[default letters] or [red letters]RED[default letters] text. South is Test Chamber. West is more text styles. North has escape testing. East has a banner quote that appears only once per game.".
+Place is a room. "Here is [green letters]GREEN[default letters] or [red letters]RED[default letters] text. South is Test Chamber. West is more text styles. North has escape testing. East has a banner quote that appears only once per game and more text color changes.".
 
 Wild West is a room, west of Place. "You made it to the [red letters]Wild Occidental[default letters], type [red letters]'east'[default letters] to return to Place. [blue letters]Je ne puis pas jouer avec toi, dit le renard.[default letters][roman type] Reverse letters working? [bold type]This is bold type.[roman type] Back to roman type."
 
@@ -25,24 +25,55 @@ North Escape is a room, north of Place. "Here you go. One / Two // Three /// Fou
 [ RemGlk expands every change, so test a really lengthy string. ]
 North Overflow is a room, north of North Escape. "Here you go. [fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E. More: [fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E. Even More: [fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E[fixed letter spacing]A[variable letter spacing]B[bold type]C[italic type]D[roman type]E. Inform 7 build 6M62 limit. 012345678901234567890123456789."
 
+North Styles is a room, north of North Overflow.  "The 'D' italic in that room description, such as [italic type]this italic text[roman type] should not be bold according to the stylehints I have studied that inform 7 6M62 is generating for this story file. set style is called to set style_Alert stylehint_Weight to 0 and stylehint_Oblique to 1. This is bold off, italic on. :::: Ok, what if [bold type]turn on bold type [italic type]turn on italic type[roman type] now return to roman type; [italic type]italic again; [roman type]roman type. Try further North.".
+
+North Styles2 is a room, north of North Styles. "This text will not be printed, did you see this ROOM-TEXT-0 ?".
+
+after going to the North Styles2:
+	say "ROOM-TEXT-1 The 'D' italic in that room description, such as [italic type]this italic text[roman type] should not be bold according to the stylehints I have studied that inform 7 6M62 is generating for this story file. set style is called to set style_Alert stylehint_Weight to 0 and stylehint_Oblique to 1. This is bold off, italic on. :::: Ok, what if [bold type]turn on bold type [italic type]+ turn on italic type[roman type] now return to roman type.  South to turn around.".
+
+
 To say i -- beginning say_i -- running on: (- style underline; -).
 To say /i -- ending say_i -- running on: (- style roman; -).
+
+[ Eastward Room in Inform 7 build 6M62 IDE does not render this room correct on Ubuntu 16.10 - if these problems were so easy then other developers wouldn't keep having problems, would they? WIndows 10 of the same IDE does not have this problem.  Perhaps what we need is more Inform 7 source code examples of how-to and mixed style examples to test against. ]
 
 Eastward Room is a room, east of Place. "Welcome to Eastward Room, go West to return to the central Place. Another East is available with colors."
 
 After going to the Eastward Room:
 	display the boxed quotation "\ \\\\\\\ Tempus fugit. /////// /";
 	say "quote should have appeared on first visit to this room.";
-	say  "is this next word [i]underlined?[/i] as it's kind of confusing the style names in the source code. West takes you back to the Place where you came from, Another East is available with colors.".
+	say  "is this next word [i]underlined?[/i] (Yes, it is on Frotz on Ubuntu 16.10 and Fizmo-ncursesw on Ubuntu 16.10 - modern DEC VT100 style implementations) as it's kind of confusing the style names in the source code. West takes you back to the Place where you came from, Another East is available with colors.".
 
-Eastern End is a room, east of Eastward Room. "West to go back where you came from. [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [bold type]bold type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [italic type]italic type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default."
+Eastern End is a room, east of Eastward Room. "West to go back where you came from. [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [bold type]bold type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [italic type]italic type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. More to the East."
 
-Eastern Endzone  is a room, east of Eastern End. "Here is the end of the line going East. Go back west!"
+Eastern Normalcy0  is a room, east of Eastern End. "Here is a room with normal text and nothing more. Cleanse the Palate of color palettes. Another east mixes bolds and colors."
 
+Eastern Holi0 is a room, east of Eastern Normalcy0. "West to go back where you came from. [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [bold type]bold type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [italic type]italic type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. Mix colors with bold? [blue letters]blue on [bold type]+ bold on [italic type]+ italic on [magenta letters]magenta letters [default letters] default letters. [magenta letters]magenta letters on [italic type]+ italic type[yellow letters] yellow letters [default letters] default letters. [roman type] roman type. [italic type] italic type [default letters] default letters. [roman type] roman type. ::: Another Holi to to the East."
+
+[ Inform 7 6M62 on Ubuntu 16.10, let's try a {roman type} at start of the text to see if it resets the begin-color issue. I notice the screen flashes as through there is a quick background change of the IDE's window. ] 
+ 
+Eastern Holi1 is a room, east of Eastern Holi0. "[roman type] West[roman type] to go back where you came from. [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [bold type]bold type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [italic type]italic type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. Mix colors with bold? [blue letters]blue on [bold type]+ bold on [italic type]+ italic on [magenta letters]magenta letters [default letters] default letters. [magenta letters]magenta letters on [italic type]+ italic type[yellow letters] yellow letters [default letters] default letters. [roman type] roman type. [italic type] italic type [default letters] default letters. ::: Another Holi to to the East."
+
+[ Inform 7 6M62 showed only the first word "West" as normal in Holi1 in Inform 7 6M62 on Ubuntu 16.10. Let's try default letters and roman type both. ]
+
+Eastern Holi2 is a room, east of Eastern Holi1. "[roman type][default letters]West to go back where you came from. [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [bold type]bold type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [italic type]italic type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. Mix colors with bold? [blue letters]blue on [bold type]+ bold on [italic type]+ italic on [magenta letters]magenta letters [default letters] default letters. [magenta letters]magenta letters on [italic type]+ italic type[yellow letters] yellow letters [default letters] default letters. [roman type] roman type. [italic type] italic type [default letters] default letters. [roman type] roman type. ::: Another Holi to to the East."
+
+Eastern Holi3 is a room, east of Eastern Holi2. "[black letters][roman type]West[default letters][roman type] to go back where you came from. [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [bold type]bold type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. [italic type]italic type:  [cyan letters]cyan [default letters][blue letters]blue [default letters][black letters]black [yellow letters]yellow [white letters]white [magenta letters]magenta [default letters]default. Mix colors with bold? [blue letters]blue on [bold type]+ bold on [italic type]+ italic on [magenta letters]magenta letters [default letters] default letters. [magenta letters]magenta letters on [italic type]+ italic type[yellow letters] yellow letters [default letters] default letters. [roman type] roman type. [italic type] italic type [default letters] default letters. [roman type] roman type. :::"
+
+
+
+Section Test Chamber
 
 [ 
 Taken from http://www.intfiction.org/forum/viewtopic.php?f=7&t=19967 
 ]
+
+
+A petri dish is carried by the player.
+A flask is carried by the player.
+A wallet is carried by the player.
+A mobile phone is carried by the player.
 
 Test Chamber is a room, south of Place.
 
@@ -98,4 +129,4 @@ After going to the Southmost Chamber:
 		say red letters vm;
 	say run paragraph on;
 	clear the screen;
-	 Say "Test me with 'jump / wave / undo / undo'.".
+	 Say "Test me with 'jump / wave / undo / undo'. Command 'inventory' will produce some text.".
