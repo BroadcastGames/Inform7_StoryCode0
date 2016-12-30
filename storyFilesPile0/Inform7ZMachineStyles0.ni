@@ -1,6 +1,6 @@
 "Inform7ZMachineStyles0" by "Community"
 
-The story genre is "Other". The release number is 8.  [ genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 9.  [ genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Z-machine Glk technical demonstration".
 
 [ This is intended to be Inform 7 6m62 compiled story that can reproduce some of the text style changes of older Z-machine / Z-code games.
@@ -10,7 +10,8 @@ Notes: Interpreter Application Testing
 fizmo-ncursesw adds an extra char left of room name on South South room. fizmo-sdl2 works fine. Did not open a bug for now.
 fizmo-nucrsesw segmentation fault when doing the banner in room to East. fizmo-sdl2 kind of does fine with it.
 Frotz crashes currently with this example in the North Overflow room. Open and accepted issue: https://github.com/DavidGriffith/frotz/issues/33
-The Inform 7 IDE  (Gnome Inform 7) build 6M62 on Ubuntu 16.04 and Ubuntu 16.10 x86 has a terrible time with Z-machine / Z-code colors. Need to find some of the open bugs, but here is one related: http://inform7.com/mantis/view.php?id=1681 - I can't seem to find  an open bug on the very obvious Z-code color problems?
+The Inform 7 IDE  (Gnome Inform 7) build 6M62 on Ubuntu 16.04 and Ubuntu 16.10 x86 has a terrible time with Z-machine / Z-code colors. Need to find some of the open bugs, but here is one related: http://inform7.com/mantis/view.php?id=1681 - I can't seem to find  an open bug on the very obvious Z-code inline text color problems? The Place room doesn't even show correctly (the entire line is RED).
+fozmo-nucrsesw and Frotz both do not show the say text in the two South Chamber examples.  Ubuntu 16.10 Gnome Inform 7 IDE build 6M62 does show it!
  ]
 
 
@@ -106,7 +107,7 @@ After going to the Test Chamber:
 		say red letters vm;
 	say run paragraph on;
 	clear the screen;
-	 Say "Test me with 'jump / wave / undo / undo'. South is the Southmost Chamber where another color technique is used.".
+	 Say "Test me with 'jump / wave / undo / undo'. South is the Southmost Chamber where another color technique is used. Command 'inventory' will produce some text without changing rooms. This text sometimes does not appear on some interpreter applications. You can go East to test a room change.".
 	
 [I7's VM_SetWindowColours and lib 6/11's SetColour both reject fg and bg args of 0 (CLR_CURRENT), while lib 6/12's SetColour and the @set_colour opcode itself both allow it. So, we set the bg to 1 (CLR_DEFAULT) instead.]
 [See http://inform7.com/mantis/view.php?id=1377 for more on this.]
@@ -134,4 +135,9 @@ After going to the Southmost Chamber:
 		say red letters vm;
 	say run paragraph on;
 	clear the screen;
-	 Say "Test me with 'jump / wave / undo / undo'. Command 'inventory' will produce some text.".
+	 Say "Test me with 'jump / wave / undo / undo'. Command 'inventory' will produce some text without changing rooms. This text sometimes does not appear on some interpreter applications. You can go East to test a room change.".
+
+EastOff Southmost is a room, east of the Southmost Chamber. "Do you get what color in this room, it is just plain and normal."
+
+[ Gnome Inform 7 IDE on Ubuntu 16.10 gets really confused if you go into this room and return. A black background screen. ]
+EastOff SouthTest is a room, east of the Test Chamber. "Do you get what color in this room, it is just plain and normal."
