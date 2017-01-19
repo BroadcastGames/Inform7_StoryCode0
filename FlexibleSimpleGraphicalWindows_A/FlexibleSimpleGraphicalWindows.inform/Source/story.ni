@@ -18,7 +18,7 @@ ToDo features:
    3. Tech demo: "There is a flag (winmethod_NoBorder) which the game can use to ask for no border between the windows. (Pass as part of the method argument of glk_window_open()." from here: http://www.intfiction.org/forum/viewtopic.php?f=7&t=15797
 ]
 
-The story genre is "Other". The release number is 26.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
+The story genre is "Other". The release number is 27.  [genre: http://www.intfiction.org/forum/viewtopic.php?f=7&t=6165 ]
 The story headline is "Glulx technical demonstration".
 
 [
@@ -108,7 +108,7 @@ When play begins:
 		now Fake Graphics is false;
 	otherwise:
 		Say "TECH00: Interpreter indicated that Glulx graphics are not supported.";
-	[now Fake Graphics is true;]
+		now Fake Graphics is true;
 
 
 
@@ -395,6 +395,7 @@ Chapter - Startup Story
 Complex Layout is a truth state variable. Complex Layout is true.
 LayoutA is a truth state variable. LayoutA is true.
 
+
 When play begins:
         now the right hand status line is "[link 100]reset story[end link]"
 
@@ -405,6 +406,7 @@ Last when play begins (this is the check screen size rule):
 		if width of the main window is less than 80 or height of the main window is less than 24:
 			say "WARNING: Your Interpreter's main window is too small @ [width of the main window]x[height of the main window] for you to use the Complex Layout. This needs 80x24 or larger. Maximize your window if you can, the command 'complexlayout' will enable the additional windows or command 'restart' should redraw everything.[line break]";
 			now LayoutA is false;
+			close the graphics window;
 		otherwise:
 			say "TECH00: Screen detected size [width of the main window]x[height of the main window].";
 			follow the open up Complex Layout rule.
@@ -432,6 +434,14 @@ This is the open up Complex Layout rule:
 		open info1-border window;
 		refresh the graphics window;
 	say "TECH00: Opened windows following the Complex Layout rule.";
+
+
+Toggling the Complex LayoutToggle is an action out of world.
+Understand "complexlayout" as toggling the Complex LayoutToggle .
+Understand "clayout" as toggling the Complex LayoutToggle .
+
+Carry out toggling the Complex LayoutToggle:
+	follow the open up Complex Layout rule.
 
 [ToDo: implement toggle for 'complexlayout' command to collapse to small-screen single-window behavior.]
 
